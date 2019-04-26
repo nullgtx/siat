@@ -1,4 +1,14 @@
-@extends('layouts.app')
+@switch($role)
+    @case($role === 'pemilik')
+        @extends('layouts.navpemilik')
+    @break
+    @case($role === 'kepalacabang')
+        @extends('layouts.navkepala')
+    @break
+    @case($role === 'kasir')
+        @extends('layouts.navkasir')
+    @break
+@endswitch
 @section('content')
 
 <div class="container">
@@ -13,9 +23,11 @@
                 <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
             </form>
         </div>
+        @if ($role == 'kepalacabang')
         <div class="col-sm-5">
-            <a href="#"><input type="submit" class="btn btn-outline-success" value="Tambah Barang"></a>
+            <a href="{{ route('tambahbarang') }}"><input type="submit" class="btn btn-outline-success" value="Tambah Barang"></a>
         </div>
+        @endif
     </div>
     <div class="row justify-content-center">
         <table class="table table-striped">

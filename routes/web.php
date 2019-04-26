@@ -27,9 +27,18 @@ Route::get('/dashboard/kepala', function () {
     return view('dashboardkepala');
 })->name('dashboardkepala');
 
-Route::get('/stokbarang', function () {
-    return view('stokbarang');
-});
+Route::get('/dashboard/stokbarang', function () {
+    $role = Auth::user()->role;
+    return view('stokbarang',['role'=>$role]);
+})->name('stokbarang');
+
+Route::get('/dashboard/pemilik', function () {
+    return view('dashboardpemilik');
+})->name('dashboardpemilik');
+
+Route::get('/dashboard/pemilik/tambahbarang', function () {
+    return view('tambahbarang');
+})->name('tambahbarang');
 
 Auth::routes();
 
