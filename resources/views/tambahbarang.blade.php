@@ -2,23 +2,59 @@
 @section('content')
 <div class="container">
     <h4>Tambah Barang</h4>
-    <form>
-    <div class="col-sm-5 pt-3">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Kode Obat</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="XXXXXXXXX" id="example-text-input">
+  </div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">Jenis Obat</label>
+      <div class="col-10">
+      <select id="inputState" class="form-control">
+        <option selected>Pilih...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      </div>
     </div>
-    </form>
+<div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Keterangan</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="XXXXXXXXX" id="example-text-input2">
+  </div>
+</div>
+<div class="form-group row">
+<label for="example-text-input" class="col-2 col-form-label">Satuan</label>
+      <div class="col-10">
+      <select id="inputState" class="form-control">
+        <option selected>Pilih...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      </div>
+    </div>
+    <div class="form-group row">
+  <label for="example-text-input" class="col-2 col-form-label">Jumlah</label>
+  <div class="col-10">
+    <input class="form-control" type="text" value="XXXXXXXXX" id="example-text-input3">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="example-date-input" class="col-2 col-form-label">Date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" value="2019-08-19" id="example-date-input">
+  </div>
+</div>
+<div class="form-group row">
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Simpan</button>
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Kembali</button>
+    </div>
+  </div>
 </div>
 @endsection
