@@ -47,7 +47,7 @@
                 <td>Otto</td>
                 <td>@mdo</td>
                 <td>
-                    <a href="#">
+                    <a href="{{ route('editbarang') }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="#">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
@@ -59,7 +59,7 @@
                 <td>Thornton</td>
                 <td>@fat</td>
                 <td>
-                    <a href="#">
+                    <a href="{{ route('editbarang') }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="#">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
@@ -71,7 +71,7 @@
                 <td>the Bird</td>
                 <td>@twitter</td>
                 <td>
-                    <a href="#">
+                    <a href="{{ route('editbarang') }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="#">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>

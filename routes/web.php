@@ -39,7 +39,9 @@ Route::get('/dashboard/pemilik', function () {
 Route::get('/dashboard/pemilik/tambahbarang', function () {
     return view('tambahbarang');
 })->name('tambahbarang');
-
+Route::get('/dashboard/pemilik/editbarang', function () {
+    return view('editbarang');
+})->name('editbarang');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
