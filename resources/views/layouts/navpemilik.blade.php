@@ -34,13 +34,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboardkepala') }}">Dashboard<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('dashboardpemilik') }}">Dashboard<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Data Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stokbarang') }}">Stok Barang<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('stokbarangpemilik') }}">Stok Barang<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
