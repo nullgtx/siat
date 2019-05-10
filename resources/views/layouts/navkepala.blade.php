@@ -37,7 +37,7 @@
                             <a class="nav-link" href="{{ route('dashboardkepala') }}">Dashboard<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stokbarang') }}">Stok Barang<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('stokbarangkepala') }}">Stok Barang<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Barang Masuk Keluar<span class="sr-only">(current)</span></a>
