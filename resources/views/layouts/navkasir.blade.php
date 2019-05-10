@@ -37,7 +37,7 @@
                             <a class="nav-link" href="{{ route('dashboardkasir') }}">Kasir<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stokbarang') }}">Stok Barang<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('stokbarangkasir') }}">Stok Barang<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Histori Transaksi<span class="sr-only">(current)</span></a>
