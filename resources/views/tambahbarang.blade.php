@@ -51,7 +51,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Rp.</span>
                 </div>
-                  <input type="number" class="form-control" placeholder="Masukkan harga barang" required>
+                  <input type="number" class="form-control" id="hargabarang" placeholder="Masukkan harga barang" required>
                 <div class="input-group-append">
                   <span class="input-group-text">,00</span>
                 </div>
