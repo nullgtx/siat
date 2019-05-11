@@ -23,6 +23,8 @@ Route::get('/absensikaryawan', function () {
     return view('absensikaryawan');
 })->name('absensikaryawan');
 
+/* Route untuk KASIR */
+
 Route::get('/dashboard/kasir', function () {
     return view('dashboardkasir');
 })->name('dashboardkasir');
@@ -30,6 +32,14 @@ Route::get('/dashboard/kasir', function () {
 Route::get('/dashboard/kasir/stokbarang', function () {
     return view('stokbarangkasir');
 })->name('stokbarangkasir');
+
+Route::get('/dashboard/kasir/historitransaksi', function () {
+    return view('historitransaksi');
+})->name('historitransaksi');
+
+/* ------------------------------------------------------------------------------ */
+
+/* Route untuk Kepala Cabang */
 
 Route::get('/dashboard/kepala', function () {
     return view('dashboardkepala');
@@ -70,9 +80,15 @@ Route::get('/dashboard/kepala/editgaji', function () {
 Route::get('/dashboard/kepala/gajikaryawan', function () {
     return view('gajikaryawankepala');
 })->name('gajikaryawankepala');
+
 Route::get('/dashboard/kepala/laporanbarang', function () {
     return view('kepalalaporanbarang');
 })->name('kepalalaporanbarang');
+
+/* ------------------------------------------------------------------------------ */
+
+/* Route untuk Kepala Cabang */
+
 Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
 })->name('dashboardpemilik');
@@ -84,6 +100,8 @@ Route::get('/dashboard/pemilik/stokbarang', function () {
 Route::get('/dashboard/pemilik/datakaryawan', function () {
     return view('datakaryawanpemilik');
 })->name('datakaryawanpemilik');
+
+/* ------------------------------------------------------------------------------ */
 
 Auth::routes();
 
