@@ -59,6 +59,18 @@ Route::get('/dashboard/kepala/datakaryawan', function () {
     return view('datakaryawankepala');
 })->name('datakaryawankepala');
 
+Route::get('/dashboard/kepala/tambahgaji', function () {
+    return view('tambahgaji');
+})->name('tambahgaji');
+
+Route::get('/dashboard/kepala/editgaji', function () {
+    return view('editgaji');
+})->name('editgaji');
+
+Route::get('/dashboard/kepala/gajikaryawan', function () {
+    return view('gajikaryawankepala');
+})->name('gajikaryawankepala');
+
 Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
 })->name('dashboardpemilik');
