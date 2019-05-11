@@ -70,7 +70,9 @@ Route::get('/dashboard/kepala/editgaji', function () {
 Route::get('/dashboard/kepala/gajikaryawan', function () {
     return view('gajikaryawankepala');
 })->name('gajikaryawankepala');
-
+Route::get('/dashboard/kepala/laporanbarang', function () {
+    return view('kepalalaporanbarang');
+})->name('kepalalaporanbarang');
 Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
 })->name('dashboardpemilik');
