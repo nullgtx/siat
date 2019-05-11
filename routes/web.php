@@ -47,11 +47,11 @@ Route::get('/dashboard/kepala/stokbarang', function () {
     return view('stokbarangkepala');
 })->name('stokbarangkepala');
 
-Route::get('/dashboard/kepala/tambahkaryawan', function () {
+Route::get('/dashboard/kepala/datakaryawan/tambahkaryawan', function () {
     return view('tambahkaryawan');
 })->name('tambahkaryawan');
 
-Route::get('/dashboard/kepala/editkaryawan', function () {
+Route::get('/dashboard/kepala/datakaryawan/editkaryawan', function () {
     return view('editkaryawan');
 })->name('editkaryawan');
 
