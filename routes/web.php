@@ -47,6 +47,18 @@ Route::get('/dashboard/kepala/stokbarang', function () {
     return view('stokbarangkepala');
 })->name('stokbarangkepala');
 
+Route::get('/dashboard/kepala/tambahkaryawan', function () {
+    return view('tambahkaryawan');
+})->name('tambahkaryawan');
+
+Route::get('/dashboard/kepala/editkaryawan', function () {
+    return view('editkaryawan');
+})->name('editkaryawan');
+
+Route::get('/dashboard/kepala/datakaryawan', function () {
+    return view('datakaryawankepala');
+})->name('datakaryawankepala');
+
 Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
 })->name('dashboardpemilik');
@@ -54,6 +66,10 @@ Route::get('/dashboard/pemilik', function () {
 Route::get('/dashboard/pemilik/stokbarang', function () {
     return view('stokbarangpemilik');
 })->name('stokbarangpemilik');
+
+Route::get('/dashboard/pemilik/datakaryawan', function () {
+    return view('datakaryawanpemilik');
+})->name('datakaryawanpemilik');
 
 Auth::routes();
 

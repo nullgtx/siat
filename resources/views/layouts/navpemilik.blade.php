@@ -37,7 +37,7 @@
                             <a class="nav-link" href="{{ route('dashboardpemilik') }}">Dashboard<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Data Karyawan<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('datakaryawanpemilik') }}">Data Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('stokbarangpemilik') }}">Stok Barang<span class="sr-only">(current)</span></a>

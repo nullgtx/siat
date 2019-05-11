@@ -43,7 +43,7 @@
                             <a class="nav-link" href="#">Barang Masuk Keluar<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gaji Karyawan<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('datakaryawankepala') }}">Gaji Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pengaturan Akun<span class="sr-only">(current)</span></a>
