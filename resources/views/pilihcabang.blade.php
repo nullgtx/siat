@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Apotek Kimia Forma A</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+                            <a href="{{ route('dashboardpemilik') }}" class="btn btn-success">Masuk</a>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Apotek Kimia Forma B</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+                            <a href="{{ route('dashboardpemilik') }}" class="btn btn-success">Masuk</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Apotek Kimia Forma C</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+                            <a href="{{ route('dashboardpemilik') }}" class="btn btn-success">Masuk</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Apotek Kimia Forma D</h5>
                             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+                            <a href="{{ route('dashboardpemilik') }}" class="btn btn-success">Masuk</a>
                         </div>
                     </div>
                 </div>
