@@ -53,7 +53,6 @@
                     <a href="#">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
                 </td>
-                <td>
                 </tr>
                 <tr>
                 <th scope="row">3</th>
