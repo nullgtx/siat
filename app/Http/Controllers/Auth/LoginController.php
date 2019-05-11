@@ -44,7 +44,7 @@ class LoginController extends Controller
                 return '/dashboard/kepala';
             break;
             case 'pemilik':
-                return '/dashboard/pemilik';
+                return '/pilihcabang';
             break;
             case 'kasir':
                 return '/dashboard/kasir';
