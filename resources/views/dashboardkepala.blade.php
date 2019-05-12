@@ -1,48 +1,41 @@
 @extends('layouts.navkepala')
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-sm-6 pb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Apotek Kimia Forma A</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 pb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Apotek Kimia Forma B</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+    <h4><b>Selamat Datang, {{ Auth::user()->name }}</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek XXX</b></button>
+
+    <div class="row pt-4">
+
+        <div class="col-8">
+            <h5><b>Ringkasan Informasi Apotek</b></h5>
+            <h5>Penjualan Apotek</h5>
+
+        </div>
+
+        <div class="col-4">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Quick Tips</b></h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-success">Telusuri</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-sm-6 pb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Apotek Kimia Forma C</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Apotek Kimia Forma D</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-success">Masuk</a>
+            <div class="col pt-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Quick Tips</b></h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-success">Telusuri</a>
+                            </div>
                         </div>
                     </div>
                 </div>
