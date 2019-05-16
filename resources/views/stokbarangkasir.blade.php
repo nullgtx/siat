@@ -19,30 +19,50 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ID Obat</th>
+                <th scope="col">Kode Obat</th>
+                <th scope="col">Nama Obat</th>
+                <th scope="col">Jenis Obat</th>
+                <th scope="col">Stok Obat</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th scope="col">Tanggal Kadaluarsa</th>
+                <th scope="col">Satuan Obat</th>
+                <th scope="col">Harga Obat</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>PWTBTK001</td>
+                <td>Obat uhuk</td>
+                <td>OBH</td>
+                <td>5</td>
+                <td>1 Januari 2019</td>
+                <td>1 Januari 2020</td>
+                <td>Botol</td>
+                <td>15000</td>
                 </tr>
                 <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>PWTBTK001</td>
+                <td>Obat uhuk</td>
+                <td>OBH</td>
+                <td>5</td>
+                <td>1 Januari 2019</td>
+                <td>1 Januari 2020</td>
+                <td>Botol</td>
+                <td>15000</td>
                 </tr>
                 <tr>
                 <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>PWTBTK001</td>
+                <td>Obat uhuk</td>
+                <td>OBH</td>
+                <td>5</td>
+                <td>1 Januari 2019</td>
+                <td>1 Januari 2020</td>
+                <td>Botol</td>
+                <td>15000</td>
                 </tr>
             </tbody>
         </table>
