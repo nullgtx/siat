@@ -46,7 +46,7 @@
                             <a class="nav-link" href="{{ route('gajikaryawankepala') }}">Gaji Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pengaturan Akun<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('pengaturanakun') }}">Pengaturan Akun<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
