@@ -4,7 +4,7 @@
     <h4>Tambah Karyawan</h4>
     <div class="row">
       <div class="col-8">
-        <form>
+      <form id="datapegawai" method="post" action="javascript:void(0)">
 
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">ID Karyawan</label>
@@ -60,8 +60,59 @@
 
           <div class="form-group row">
             <div class="col-auto">
-              <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
             </div>
+            <script>
+                            async function onSubmitClicked()  {
+                            
+                                    $("#send_form").html('Menyimpan...');
+                                    axios.post('http://localhost:8000/tambahkaryawan/pegawai', {
+                                      idkaryawan: jQuery('#idkaryawan').val(),
+                                        namakaryawan: jQuery('#namakaryawan').val(),
+                                        jeniskelamin: jQuery('#jeniskelamin').val(),
+                                        alamat: jQuery('#alamat').val(),
+                                        tanggallahir: jQuery('#tanggallahir').val(),
+                                        role: jQuery('#role').val()
+
+
+                                    })
+                                    .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            toastr.error("Gagal menyimpan data", "Kesalahan");
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
+                        </script>
+
+
+
+
+
+
+
             <div class="col-auto">
               <a class="btn btn-primary" href="{{ route('datakaryawankepala') }}" role="button">Kembali</a>
             </div>
