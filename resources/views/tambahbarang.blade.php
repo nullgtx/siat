@@ -4,7 +4,7 @@
     <h4>Tambah Barang</h4>
     <div class="row">
       <div class="col-8">
-        <form>
+      <form id="dataobat" method="post" action="javascript:void(0)">
 
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Kode Barang</label>
@@ -82,8 +82,53 @@
 
           <div class="form-group row">
             <div class="col-auto">
-              <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
             </div>
+            <script>
+                            async function onSubmitClicked()  {
+                            
+                                    $("#send_form").html('Menyimpan...');
+                                    axios.post('http://localhost:8000/tambahbarang/obat', {
+                                      kodebarang: jQuery('#kodebarang').val(),
+                                        jenisbarang: jQuery('#jenisbarang').val(),
+                                        keteranganbarang: jQuery('#keteranganbarang').val(),
+                                        satuanbarang: jQuery('#satuanbarang').val(),
+                                        hargabarang: jQuery('#hargabarang').val(),
+                                        jumlahbarang: jQuery('#jumlahbarang').val(),
+                                        tanggalmasuk: jQuery('#tanggalmasuk').val(),
+                                        tanggalexpired: jQuery('#tanggalexpired').val()
+
+                                    })
+                                    .then(function (response) {
+                                            toastr.options = {
+                                                "closeButton": false,
+                                                "debug": false,
+                                                "newestOnTop": false,
+                                                "progressBar": false,
+                                                "positionClass": "toast-top-center",
+                                                "preventDuplicates": false,
+                                                "onclick": null,
+                                                "showDuration": "300",
+                                                "hideDuration": "1000",
+                                                "timeOut": "5000",
+                                                "extendedTimeOut": "1000",
+                                                "showEasing": "swing",
+                                                "hideEasing": "linear",
+                                                "showMethod": "fadeIn",
+                                                "hideMethod": "fadeOut"
+                                            };
+                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+
+                                            console.log(response);
+                                            $("#send_form").html('Simpan');
+                                        })
+                                        .catch(function (error) {
+                                            toastr.error("Gagal menyimpan data", "Kesalahan");
+                                            $("#send_form").html('Simpan');
+                                            console.log(error);
+                                        });
+                            }
+                        </script>
             <div class="col-auto">
               <a class="btn btn-primary" href="{{ route('stokbarangkepala') }}" role="button">Kembali</a>
             </div>

@@ -114,3 +114,4 @@ Route::get('/dashboard/pemilik/datakaryawan', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/tambahbarang/obat','obatController@store')->name('obat');
