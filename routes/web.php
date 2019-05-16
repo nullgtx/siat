@@ -85,6 +85,14 @@ Route::get('/dashboard/kepala/laporanbarang', function () {
     return view('kepalalaporanbarang');
 })->name('kepalalaporanbarang');
 
+Route::get('/dashboard/kepala/pengaturanakun', function () {
+    return view('pengaturanakun');
+})->name('pengaturanakun');
+
+Route::get('/dashboard/kepala/pengaturanakun/ubahpassword', function () {
+    return view('ubahpassword');
+})->name('ubahpassword');
+
 /* ------------------------------------------------------------------------------ */
 
 /* Route untuk Kepala Cabang */
