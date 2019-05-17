@@ -15,15 +15,17 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($users as $user)
                 <tr>
-                <td>1</td>
-                <td>Kepala Cabang A</td>
-                <td>kepalacabanga@siat.med</td>
-                <td>kepalacabang</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->role}}</td>
                 <td>
                     <a href="{{ route('ubahpassword') }}">
                         <input type="submit" class="btn btn-primary" value="Ubah Password"></a>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
