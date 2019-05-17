@@ -18,9 +18,14 @@
             <div class="col-9">
               <select id="jenisbarang" class="form-control" required>
                 <option value="" selected disable>Pilih jenis barang</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Serbuk">Serbuk</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Tablet Kunyah">Tablet Kunyah</option>
+                <option value="Pil">Pil</option>
+                <option value="Kapsul">Kapsul</option>
+                <option value="Kaplet">Kaplet</option>
+                <option value="Salep">Salep</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
             </div>
           </div>
@@ -37,9 +42,10 @@
             <div class="col-9">
               <select id="satuanbarang" class="form-control" required>
                 <option value="" selected disable>Pilih satuan barang</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Strip">Strip</option>
+                <option value="Botol">Botol</option>
+                <option value="Pack">Pack</option>
+                <option value="Butir">Butir</option>
               </select>
             </div>
           </div>
