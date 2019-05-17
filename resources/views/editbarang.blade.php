@@ -4,12 +4,13 @@
     <h4>Edit Barang</h4>
     <div class="row">
       <div class="col-8">
-        <form>
-
+        <form id="editbarang" method="post" action="javascript:void(0)">
+        <input type="hidden" name="kodebarang" value="{{ ($dataobat) ? $dataobat['kodebarang'] : '' }}">
+        {{ csrf_field() }}
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Kode Barang</label>
             <div class="col-9">
-              <input class="form-control" type="text" placeholder="Masukkan kode barang" id="kodebarang" required>
+              <input class="form-control" type="text" placeholder="Masukkan kode barang" value="{{ ($dataobat) ? $dataobat['kodebarang'] : '' }}" id="kodebarang" required>
             </div>
           </div>
 
@@ -18,9 +19,14 @@
             <div class="col-9">
               <select id="jenisbarang" class="form-control" required>
                 <option value="" selected disable>Pilih jenis barang</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Serbuk">Serbuk</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Tablet Kunyah">Tablet Kunyah</option>
+                <option value="Pil">Pil</option>
+                <option value="Kapsul">Kapsul</option>
+                <option value="Kaplet">Kaplet</option>
+                <option value="Salep">Salep</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
             </div>
           </div>
@@ -37,9 +43,10 @@
             <div class="col-9">
               <select id="satuanbarang" class="form-control" required>
                 <option value="" selected disable>Pilih satuan barang</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="Strip">Strip</option>
+                <option value="Botol">Botol</option>
+                <option value="Pack">Pack</option>
+                <option value="Butir">Butir</option>
               </select>
             </div>
           </div>
