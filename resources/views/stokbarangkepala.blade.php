@@ -36,57 +36,26 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($dataobat as $khintil)
             <tr>
-                <th scope="row">1</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
+                
+                <td>{{$khintil->id}}</td>
+                <td>{{$khintil->kodebarang}}</td>
+                <td>{{$khintil->keteranganbarang}}</td>
+                <td>{{$khintil->jenisbarang}}</td>
+                <td>{{$khintil->jumlahbarang}}</td>
+                <td>{{$khintil->tanggalmasuk}}</td>
+                <td>{{$khintil->tanggalexpired}}</td>
+                <td>{{$khintil->satuanbarang}}</td>
+                <td>{{$khintil->hargabarang}}</td>
                 <td>
-                    <a href="{{ route('editbarang') }}">
+                    <a href="/dashboard/kepala/editbarang/{{ $khintil->kodebarang }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="#">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
                 </td>
                 </tr>
-                <tr>
-                <th scope="row">1</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
-                <td>
-                    <a href="{{ route('editbarang') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
-                <tr>
-                <th scope="row">1</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
-                <td>
-                    <a href="{{ route('editbarang') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
