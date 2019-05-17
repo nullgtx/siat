@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\dataobats;
@@ -9,11 +10,13 @@ use Response;
 
 class obatcontroller extends Controller
 {
-    /*public function showInputObatView() {
-        $cabang = Branch::where('nik', Auth::user()->nik)->first();
-        $supplier = Supplier::where('branch_id', $cabang->id)->get();
-        return view('input.obat', ['cabang' => $cabang, 'supplier' => $supplier]);
-    }*/
+    public function index() {
+        
+    $dataobat = DB::table('dataobat')->get();
+
+        return view('stokbarangkepala', ['dataobat' => $dataobat]);
+    
+    }
    
     public function store(Request $request) {
         $obat = new dataobats;
@@ -29,5 +32,16 @@ class obatcontroller extends Controller
         return Response::json([
             'action' => 'save_dataobat'
                 ], 201); // Status code here
+    }
+
+    public function editBarang($kodebarang)
+    {
+        $dataobat = DB::table('dataobat')->find('id');
+        if(count('id')>0){
+            return view('editbarang',['dataobat'=>$dataobat]);
+        }
+        else{
+            return redirect('/dashboard/kepala/stokbarang');
+        }
     }
 }
