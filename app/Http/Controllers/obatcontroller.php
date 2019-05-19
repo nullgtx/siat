@@ -44,4 +44,10 @@ class obatcontroller extends Controller
             return redirect('/dashboard/kepala/stokbarang');
         }
     }
+    
+    public function deleteBarang($id)
+    {
+        DB::table('dataobat')->where('id',$id)->delete();
+        return redirect('/dashboard/kepala/stokbarang');
+    }
 }
