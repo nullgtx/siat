@@ -30,4 +30,9 @@ class Pegawaiscontroller extends Controller
             'action' => 'save_datapegawai'
                 ], 201); // Status code here
     }
+    public function deleteKaryawan($id)
+    {
+        DB::table('datapegawai')->where('id',$id)->delete();
+        return redirect('/dashboard/kepala/datakaryawankepala');
+    }
 }
