@@ -25,8 +25,8 @@
             <div class="col-9">
               <select id="jeniskelamin" class="form-control" required>
                 <option value="" selected disable>Pilih jenis kelamin</option>
-                <option value="1">Laki-Laki</option>
-                <option value="2">Perempuan</option>
+                <option value="Laki-Laki">Laki-Laki</option>
+                <option value="Perempuan">Perempuan</option>
               </select>
             </div>
           </div>
@@ -51,9 +51,9 @@
             <div class="col-9">
               <select id="role" class="form-control" required>
                 <option value="" selected disable>Pilih Role Karyawan</option>
-                <option value="1">Pemilik</option>
-                <option value="2">Karyawan</option>
-                <option value="3">Kasir</option>
+                <option value="Pemilik">Pemilik</option>
+                <option value="Karyawan">Karyawan</option>
+                <option value="Kasir">Kasir</option>
               </select>
             </div>
           </div>
@@ -73,8 +73,6 @@
                                         alamat: jQuery('#alamat').val(),
                                         tanggallahir: jQuery('#tanggallahir').val(),
                                         role: jQuery('#role').val()
-
-
                                     })
                                     .then(function (response) {
                                       Command: swal("Sukses", "Berhasil Menambahkan Data", "success");

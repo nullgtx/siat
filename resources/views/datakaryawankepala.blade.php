@@ -21,6 +21,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                <th scope="col">ID</th>
                 <th scope="col">ID karyawan</th>
                 <th scope="col">Nama</th>
                 <th scope="col">jenis Kelamin</th>
@@ -31,13 +32,15 @@
                 </tr>
             </thead>
             <tbody>
+            @foreach($datapegawai as $pegawaiss)
                 <tr>
-                <th scope="row">1</th>
-                <td>Udin</td>
-                <td>Laki-laki</td>
-                <td>purwokerto</td>
-                <td>14 agustus 1994</td>
-                <td>Kasir</td>
+                <td>{{$pegawaiss->id}}</td>
+                <td>{{$pegawaiss->idkaryawan}}</td>
+                <td>{{$pegawaiss->namakaryawan}}</td>
+                <td>{{$pegawaiss->jeniskelamin}}</td>
+                <td>{{$pegawaiss->alamat}}</td>
+                <td>{{$pegawaiss->tanggallahir}}</td>
+                <td>{{$pegawaiss->role}}</td>
                 <td>
                     <a href="{{ route('editkaryawan') }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
@@ -45,34 +48,7 @@
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
                 </td>
                 </tr>
-                <tr>
-                <th scope="row">1</th>
-                <td>Ucok</td>
-                <td>Laki-laki</td>
-                <td>purwokerto</td>
-                <td>14 agustus 1994</td>
-                <td>Pemilik</td>
-                <td>
-                    <a href="{{ route('editkaryawan') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
-                <tr>
-                <th scope="row">1</th>
-                <td>Umam</td>
-                <td>Laki-laki</td>
-                <td>purwokerto</td>
-                <td>14 agustus 1994</td>
-                <td>kepalacabang</td>
-                <td>
-                    <a href="{{ route('editkaryawan') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -121,5 +121,6 @@ Route::post('/tambahkaryawan/pegawai','PegawaisController@store')->name('pegawai
 /* INI BUAT PERCOBAAN */
 
 Route::get('/dashboard/kepala/stokbarang', 'obatcontroller@index')->name('stokbarangkepala');
+Route::get('/dashboard/kepala/datakaryawankepala', 'PegawaisController@index')->name('datakaryawankepala');
 Route::get('/dashboard/kepala/editbarang/{kodebarang}', 'obatcontroller@editBarang')->name('editbarang');
 Route::get('/dashboard/kepala/pengaturanakun', 'UserController@index')->name('pengaturanakun');

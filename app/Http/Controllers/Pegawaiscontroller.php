@@ -1,13 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pegawais;
 use Response;
 class Pegawaiscontroller extends Controller
 {
+    public function index() {
+        
+        $datapegawai = DB::table('datapegawai')->get();
+    
+            return view('datakaryawankepala', ['datapegawai' => $datapegawai]);
+        
+        }
+    
     //
     public function store(Request $request) {
         $pegawai = new Pegawais;
