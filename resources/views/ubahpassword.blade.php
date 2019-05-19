@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-8">
         <form>
-
+        
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Password Lama</label>
             <div class="col-9">
@@ -23,7 +23,7 @@
           <div class="form-group row">
             <label for="password-confirm" class="col-3 col-form-label">Konfirmasi Password</label>
             <div class="col-9">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Masukkan ulang password baru"required>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirm" placeholder="Masukkan ulang password baru"required>
             </div>
           </div>
 
