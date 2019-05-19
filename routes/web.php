@@ -95,7 +95,7 @@ Route::get('/dashboard/kepala/pengaturanakun/ubahpassword', function () {
 
 /* ------------------------------------------------------------------------------ */
 
-/* Route untuk Kepala Cabang */
+/* Route untuk Pemilik */
 
 Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
