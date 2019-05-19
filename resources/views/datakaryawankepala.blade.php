@@ -44,7 +44,7 @@
                 <td>
                     <a href="{{ route('editkaryawan') }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
+                    <a href="/dashboard/kepala/datakaryawankepala/deletekaryawan/{{ $pegawaiss->id }}">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
                 </td>
                 </tr>
