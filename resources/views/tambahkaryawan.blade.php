@@ -77,30 +77,13 @@
 
                                     })
                                     .then(function (response) {
-                                            toastr.options = {
-                                                "closeButton": false,
-                                                "debug": false,
-                                                "newestOnTop": false,
-                                                "progressBar": false,
-                                                "positionClass": "toast-top-center",
-                                                "preventDuplicates": false,
-                                                "onclick": null,
-                                                "showDuration": "300",
-                                                "hideDuration": "1000",
-                                                "timeOut": "5000",
-                                                "extendedTimeOut": "1000",
-                                                "showEasing": "swing",
-                                                "hideEasing": "linear",
-                                                "showMethod": "fadeIn",
-                                                "hideMethod": "fadeOut"
-                                            };
-                                            Command: toastr["success"]("Berhasil menyimpan data", "Berhasil");
+                                      Command: swal("Sukses", "Berhasil Menambahkan Data", "success");
 
                                             console.log(response);
                                             $("#send_form").html('Simpan');
                                         })
                                         .catch(function (error) {
-                                            toastr.error("Gagal menyimpan data", "Kesalahan");
+                                          Command: swal("Gagal", "Gagal Menambahkan data", "error");
                                             $("#send_form").html('Simpan');
                                             console.log(error);
                                         });
