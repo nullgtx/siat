@@ -36,22 +36,22 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($dataobat as $khintil)
+            @foreach($dataobat as $obat)
             <tr>
                 
-                <td>{{$khintil->id}}</td>
-                <td>{{$khintil->kodebarang}}</td>
-                <td>{{$khintil->keteranganbarang}}</td>
-                <td>{{$khintil->jenisbarang}}</td>
-                <td>{{$khintil->jumlahbarang}}</td>
-                <td>{{$khintil->tanggalmasuk}}</td>
-                <td>{{$khintil->tanggalexpired}}</td>
-                <td>{{$khintil->satuanbarang}}</td>
-                <td>{{$khintil->hargabarang}}</td>
+                <td>{{$obat->id}}</td>
+                <td>{{$obat->kodebarang}}</td>
+                <td>{{$obat->keteranganbarang}}</td>
+                <td>{{$obat->jenisbarang}}</td>
+                <td>{{$obat->jumlahbarang}}</td>
+                <td>{{$obat->tanggalmasuk}}</td>
+                <td>{{$obat->tanggalexpired}}</td>
+                <td>{{$obat->satuanbarang}}</td>
+                <td>{{$obat->hargabarang}}</td>
                 <td>
-                    <a href="/dashboard/kepala/editbarang/{{ $khintil->kodebarang }}">
+                    <a href="/dashboard/kepala/editbarang/{{ $obat->kodebarang }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
+                    <a href="/dashboard/kepala/stokbarang/deletebarang/{{ $obat->id }}">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
                 </td>
                 </tr>
