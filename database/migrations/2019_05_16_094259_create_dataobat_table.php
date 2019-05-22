@@ -15,6 +15,7 @@ class CreateDataobatTable extends Migration
     {
         Schema::create('dataobat', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->tinyIncrements('id_cabang');
             $table->string('kodebarang');
             $table->string('jenisbarang');
             $table->string('keteranganbarang');

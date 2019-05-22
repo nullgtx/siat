@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Migrasiuser extends Migration
+class CreateCabangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class Migrasiuser extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('role');
-            $table->rememberToken();
+        Schema::create('cabang', function (Blueprint $table) {
             $table->tinyIncrements('id_cabang');
+            $table->string('nama_cabang');
+            $table->string('alamat_cabang');
             $table->timestamps();
         });
     }
@@ -33,8 +28,6 @@ class Migrasiuser extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('users');
-    
-        //
+        Schema::dropIfExists('cabang');
     }
 }

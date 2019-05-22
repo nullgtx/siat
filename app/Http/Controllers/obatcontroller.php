@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\dataobats;
+use App\cabang;
 use Response;
 
 class obatcontroller extends Controller
 {
     public function index() {
-        
-    $dataobat = DB::table('dataobat')->get();
-
-        return view('stokbarangkepala', ['dataobat' => $dataobat]);
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $dataobat = dataobats::where('id_cabang', $cabang->id_cabang)->get();
+        return view('stokbarangkepala', ['cabang' => $cabang, 'dataobat' => $dataobat]);   
     
     }
    
