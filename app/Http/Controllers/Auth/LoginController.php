@@ -54,7 +54,5 @@ class LoginController extends Controller
                 break;
         }
     }
-    public function username() {
-        return 'id_cabang';
-    }
+    
 }
