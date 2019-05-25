@@ -16,11 +16,16 @@ class obatcontroller extends Controller
         $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
         $dataobat = dataobats::where('id_cabang', $cabang->id_cabang)->get();
         return view('stokbarangkepala', ['cabang' => $cabang, 'dataobat' => $dataobat]);   
-    
     }
-   
+
+    public function inputBarang() {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        return view('tambahbarang', ['cabang' => $cabang]);   
+    }
+
     public function store(Request $request) {
         $obat = new dataobats;
+        $obat->id_cabang = $request->id_cabang;
         $obat->kodebarang = $request->kodebarang;
         $obat->jenisbarang = $request->jenisbarang;
         $obat->keteranganbarang = $request->keteranganbarang;
