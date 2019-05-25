@@ -45,10 +45,6 @@ Route::get('/dashboard/kepala', function () {
     return view('dashboardkepala');
 })->name('dashboardkepala');
 
-Route::get('/dashboard/kepala/tambahbarang', function () {
-    return view('tambahbarang');
-})->name('tambahbarang');
-
 Route::get('/dashboard/kepala/editbarang', function () {
     return view('editbarang');
 })->name('editbarang');
@@ -119,8 +115,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /* STOK BARANG - KEPALA CABANG */
 
-Route::post('/tambahbarang/obat','obatController@store')->name('obat');
 Route::get('/dashboard/kepala/stokbarang', 'obatcontroller@index')->name('stokbarangkepala');
+Route::get('/dashboard/kepala/stokbarang/tambahbarang', 'obatcontroller@inputBarang')->name('tambahbarang');
+Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatController@store')->name('simpanbarang');
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
 Route::get('/dashboard/kepala/editbarang/{kodebarang}', 'obatcontroller@editBarang')->name('editbarang');
 
