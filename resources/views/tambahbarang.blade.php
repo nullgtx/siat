@@ -94,8 +94,9 @@
                             async function onSubmitClicked()  {
                             
                                     $("#send_form").html('Menyimpan...');
-                                    axios.post('http://localhost:8000/tambahbarang/obat', {
-                                      kodebarang: jQuery('#kodebarang').val(),
+                                    axios.post('http://localhost:8000/dashboard/kepala/stokbarang/tambahbarang/simpanbarang', {
+                                        id_cabang: '{{$cabang->id_cabang}}',
+                                        kodebarang: jQuery('#kodebarang').val(),
                                         jenisbarang: jQuery('#jenisbarang').val(),
                                         keteranganbarang: jQuery('#keteranganbarang').val(),
                                         satuanbarang: jQuery('#satuanbarang').val(),
