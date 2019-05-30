@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\User;
+use App\User;
+use App\cabang;
+use Response;
+use Auth;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = DB::table('users')->get();
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $users = User::where('id_cabang', $cabang->id_cabang)->get();
 
-        return view('pengaturanakun', ['users' => $users]);
+        return view('pengaturanakun', ['cabang' => $cabang, 'users' => $users]);
     }
     /*
     public function getUser()
