@@ -109,11 +109,9 @@ Route::get('/dashboard/pemilik/datakaryawan', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/* --------------------------------KEPALA CABANG--------------------------------- */
 
-/* ------------------------------------------------------------------------------ */
-
-/* STOK BARANG - KEPALA CABANG */
+/* -----STOK BARANG------ */
 
 Route::get('/dashboard/kepala/stokbarang', 'obatcontroller@index')->name('stokbarangkepala');
 Route::get('/dashboard/kepala/stokbarang/tambahbarang', 'obatcontroller@inputBarang')->name('tambahbarang');
@@ -121,16 +119,36 @@ Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatContro
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
 Route::get('/dashboard/kepala/editbarang/{kodebarang}', 'obatcontroller@editBarang')->name('editbarang');
 
-/* ------------------------------------------------------------------------------- */
 
-/* DATA KARYAWAN - KEPALA CABANG */
+/* -----DATA KARYAWAN----- */
 
-Route::post('/tambahkaryawan/pegawai','PegawaisController@store')->name('pegawai');
+Route::post('/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan','PegawaisController@store')->name('pegawai');
+Route::get('/dashboard/kepala/datakaryawankepala/tambahkaryawan', 'PegawaisController@inputPegawai')->name('tambahkaryawan');
 Route::get('/dashboard/kepala/datakaryawankepala', 'PegawaisController@index')->name('datakaryawankepala');
 Route::get('/dashboard/kepala/datakaryawankepala/deletekaryawan/{id}', 'PegawaisController@deleteKaryawan')->name('deleteKaryawan');
 
-/* ------------------------------------------------------------------------------- */
 
-/* PENGATURAN AKUN - KEPALA CABANG */
+/* -----PENGATURAN AKUN----- */
 
 Route::get('/dashboard/kepala/pengaturanakun', 'UserController@index')->name('pengaturanakun');
+
+
+/* ------------------------------------------------------------------------------ */
+
+
+/* ------------------------------------KASIR------------------------------------- */
+
+/* -----STOK BARANG----- */
+
+Route::get('/dashboard/kasir/stokbarang', 'obatcontroller@tampilStokBarang_Kasir')->name('stokbarangkasir');
+
+
+/* ------------------------------------------------------------------------------- */
+
+
+/* -----------------------------------PEMILIK------------------------------------- */
+
+/* -----STOK BARANG----- */
+
+
+/* ------------------------------------------------------------------------------- */
