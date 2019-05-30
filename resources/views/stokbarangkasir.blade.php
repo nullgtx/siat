@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Stok Barang Apotek XYZ</b></h4>
+    <h4><b>Stok Barang Apotek {{Auth::user()->id_cabang}}</b></h4>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Barang</h5>
@@ -17,7 +17,8 @@
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
         <table class="table table-striped">
-            <thead>
+        <thead>
+                <tr>
                 <tr>
                 <th scope="col">ID Obat</th>
                 <th scope="col">Kode Obat</th>
@@ -31,39 +32,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
+            @foreach($dataobat as $obat)
+            <tr>
+                <td>{{$obat->id}}</td>
+                <td>{{$obat->kodebarang}}</td>
+                <td>{{$obat->keteranganbarang}}</td>
+                <td>{{$obat->jenisbarang}}</td>
+                <td>{{$obat->jumlahbarang}}</td>
+                <td>{{$obat->tanggalmasuk}}</td>
+                <td>{{$obat->tanggalexpired}}</td>
+                <td>{{$obat->satuanbarang}}</td>
+                <td>{{$obat->hargabarang}}</td>
                 </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>PWTBTK001</td>
-                <td>Obat uhuk</td>
-                <td>OBH</td>
-                <td>5</td>
-                <td>1 Januari 2019</td>
-                <td>1 Januari 2020</td>
-                <td>Botol</td>
-                <td>15000</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
