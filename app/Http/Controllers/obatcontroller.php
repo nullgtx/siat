@@ -18,6 +18,12 @@ class obatcontroller extends Controller
         return view('stokbarangkepala', ['cabang' => $cabang, 'dataobat' => $dataobat]);   
     }
 
+    public function tampilStokBarang_Kasir() {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $dataobat = dataobats::where('id_cabang', $cabang->id_cabang)->get();
+        return view('stokbarangkasir', ['cabang' => $cabang, 'dataobat' => $dataobat]);   
+    }
+
     public function inputBarang() {
         $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
         return view('tambahbarang', ['cabang' => $cabang]);   
