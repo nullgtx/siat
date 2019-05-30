@@ -6,19 +6,25 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pegawais;
 use Response;
+use App\cabang;
+use Auth;
+
 class Pegawaiscontroller extends Controller
 {
     public function index() {
-        
-        $datapegawai = DB::table('datapegawai')->get();
-    
-            return view('datakaryawankepala', ['datapegawai' => $datapegawai]);
-        
-        }
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $datapegawai = Pegawais::where('id_cabang', $cabang->id_cabang)->get();
+        return view('datakaryawankepala', ['cabang' => $cabang, 'datapegawai' => $datapegawai]);
+    }
+    public function inputPegawai() {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        return view('tambahkaryawan', ['cabang' => $cabang]);   
+    }
     
     //
     public function store(Request $request) {
         $pegawai = new Pegawais;
+        $pegawai->id_cabang = $request->id_cabang;
         $pegawai->idkaryawan = $request->idkaryawan;
         $pegawai->namakaryawan = $request->namakaryawan;
         $pegawai->jeniskelamin = $request->jeniskelamin;
