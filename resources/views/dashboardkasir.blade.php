@@ -3,7 +3,7 @@
 
 <div class="container">
     <h4><b>Transaksi Apotek</b></h4>
-    <h5>Apotek XXX</h5>
+    <h5>Apotek {{Auth::user()->id_cabang}}</h5>
     <form>
     <div class="row">
         <div class="col">
