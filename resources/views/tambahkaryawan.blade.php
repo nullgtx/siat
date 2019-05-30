@@ -66,8 +66,9 @@
                             async function onSubmitClicked()  {
                             
                                     $("#send_form").html('Menyimpan...');
-                                    axios.post('http://localhost:8000/tambahkaryawan/pegawai', {
-                                      idkaryawan: jQuery('#idkaryawan').val(),
+                                    axios.post('http://localhost:8000/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan', {
+                                        id_cabang: '{{$cabang->id_cabang}}',
+                                        idkaryawan: jQuery('#idkaryawan').val(),
                                         namakaryawan: jQuery('#namakaryawan').val(),
                                         jeniskelamin: jQuery('#jeniskelamin').val(),
                                         alamat: jQuery('#alamat').val(),
