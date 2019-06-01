@@ -45,18 +45,24 @@ class obatcontroller extends Controller
             'action' => 'save_dataobat'
                 ], 201); // Status code here
     }
-
-    public function editBarang($kodebarang)
+    public function editBarang($id)
     {
-        $dataobat = DB::table('dataobat')->find('id');
-        if(count('id')>0){
-            return view('editbarang',['dataobat'=>$dataobat]);
-        }
-        else{
-            return redirect('/dashboard/kepala/stokbarang');
-        }
+        $dataobat = dataobats::find($id);
+        
+        return view('editbarang', compact('dataobat','id'));
     }
-    
+    public function updateBarang(Request $req){
+        $obat = dataobats::find($req->input('id')); 
+        $obat->kodebarang = $req->input('kodebarang');
+        $obat->jenisbarang = $req->input('jenisbarang');
+        $obat->keteranganbarang = $req->input('keteranganbarang');
+        $obat->satuanbarang = $req->input('satuanbarang');
+        $obat->hargabarang = $req->input('hargabarang');
+        $obat->jumlahbarang = $req->input('jumlahbarang');
+        $obat->tanggalmasuk = $req->input('tanggalmasuk');
+        $obat->tanggalexpired = $req->input('tanggalexpired');
+        $obat->save();
+    }
     public function deleteBarang($id)
     {
         DB::table('dataobat')->where('id',$id)->delete();
