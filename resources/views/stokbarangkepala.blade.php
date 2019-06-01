@@ -49,7 +49,7 @@
                 <td>{{$obat->satuanbarang}}</td>
                 <td>{{$obat->hargabarang}}</td>
                 <td>
-                    <a href="/dashboard/kepala/editbarang/{{ $obat->kodebarang }}">
+                    <a href="/dashboard/kepala/stokbarang/editbarang/{{ $obat->id }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="/dashboard/kepala/stokbarang/deletebarang/{{ $obat->id }}">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
