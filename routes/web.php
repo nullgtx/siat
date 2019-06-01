@@ -110,7 +110,7 @@ Route::get('/dashboard/kepala/stokbarang/tambahbarang', 'obatcontroller@inputBar
 Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatController@store')->name('simpanbarang');
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
 Route::get('/dashboard/kepala/stokbarang/editbarang/{id}', 'obatcontroller@editBarang')->name('editbarang');
-Route::put('/dashboard/kepala/stokbarang/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
+Route::post('/dashboard/kepala/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
 
 
 /* -----DATA KARYAWAN----- */

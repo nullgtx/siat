@@ -47,21 +47,26 @@ class obatcontroller extends Controller
     }
     public function editBarang($id)
     {
-        $dataobat = dataobats::find($id);
+       //punyayanko $dataobat = dataobats::find($id);
         
-        return view('editbarang', compact('dataobat','id'));
+       //punyayanko return view('editbarang', compact('dataobat','id'));
+	$dataobat = DB::table('dataobat')->where('id',$id)->get();
+	return view('editbarang',['dataobat' => $dataobat]);
     }
-    public function updateBarang(Request $req){
-        $obat = dataobats::find($req->input('id')); 
-        $obat->kodebarang = $req->input('kodebarang');
-        $obat->jenisbarang = $req->input('jenisbarang');
-        $obat->keteranganbarang = $req->input('keteranganbarang');
-        $obat->satuanbarang = $req->input('satuanbarang');
-        $obat->hargabarang = $req->input('hargabarang');
-        $obat->jumlahbarang = $req->input('jumlahbarang');
-        $obat->tanggalmasuk = $req->input('tanggalmasuk');
-        $obat->tanggalexpired = $req->input('tanggalexpired');
-        $obat->save();
+    public function updateBarang(Request $request){
+      DB::table('dataobat')->where('id',$request->id)->update([
+            'kodebarang' => $request->kodebarang,
+            'jenisbarang' => $request->jenisbarang,
+            'keteranganbarang' => $request->keteranganbarang,
+            'satuanbarang' => $request->satuanbarang,
+            'hargabarang' => $request->hargabarang,
+            'jumlahbarang' => $request->jumlahbarang,
+            'tanggalmasuk' => $request->tanggalmasuk,
+            'tanggalexpired' => $request->tanggalexpired
+        ]); 
+   
+        return redirect('/dashboard/kepala/stokbarang')
+        ->with('success','Product updated successfully');
     }
     public function deleteBarang($id)
     {
