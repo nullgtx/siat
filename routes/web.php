@@ -45,14 +45,6 @@ Route::get('/dashboard/kepala', function () {
     return view('dashboardkepala');
 })->name('dashboardkepala');
 
-Route::get('/dashboard/kepala/editbarang', function () {
-    return view('editbarang');
-})->name('editbarang');
-
-Route::get('/dashboard/kepala/stokbarang', function () {
-    return view('stokbarangkepala');
-})->name('stokbarangkepala');
-
 Route::get('/dashboard/kepala/datakaryawan/tambahkaryawan', function () {
     return view('tambahkaryawan');
 })->name('tambahkaryawan');
@@ -117,7 +109,8 @@ Route::get('/dashboard/kepala/stokbarang', 'obatcontroller@index')->name('stokba
 Route::get('/dashboard/kepala/stokbarang/tambahbarang', 'obatcontroller@inputBarang')->name('tambahbarang');
 Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatController@store')->name('simpanbarang');
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
-Route::get('/dashboard/kepala/editbarang/{kodebarang}', 'obatcontroller@editBarang')->name('editbarang');
+Route::get('/dashboard/kepala/stokbarang/editbarang/{id}', 'obatcontroller@editBarang')->name('editbarang');
+Route::put('/dashboard/kepala/stokbarang/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
 
 
 /* -----DATA KARYAWAN----- */
