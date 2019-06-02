@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-8">
         @foreach($datapegawai as $karyawan)
-        <form id="editpegawai" method="post" action="/dashboard/kepala/editpegawai/updatepegawai">
+        <form id="editpegawai" method="post" action="/dashboard/kepala/datakaryawankepala/editkaryawan/updatekaryawan">
           {{ csrf_field() }}
           <input type="hidden" name="id" value="{{ $karyawan->id }}">
 
