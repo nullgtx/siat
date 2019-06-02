@@ -111,6 +111,7 @@ Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatContro
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
 Route::get('/dashboard/kepala/stokbarang/editbarang/{id}', 'obatcontroller@editBarang')->name('editbarang');
 Route::post('/dashboard/kepala/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
+Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
 
 
 /* -----DATA KARYAWAN----- */

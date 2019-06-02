@@ -73,4 +73,15 @@ class obatcontroller extends Controller
         DB::table('dataobat')->where('id',$id)->delete();
         return redirect('/dashboard/kepala/stokbarang');
     }
+    public function search(Request $request)
+    {
+     $cari = $request->search;
+    $dataobat = DB::table('dataobat')
+    ->where('kodebarang','like',"%".$cari."%")
+    ->orWhere('jenisbarang','like',"%".$cari."%")
+    ->paginate();
+    if(count($dataobat)>0)
+        return view('stokbarangkepala',['dataobat'=>$dataobat]);
+        else return view('stokbarangkepala',['dataobat'=>$dataobat])->with('errorMsg','Data tidak ditemukan');
+    }
 }
