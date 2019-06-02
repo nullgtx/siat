@@ -137,6 +137,7 @@ Route::get('/dashboard/kepala/pengaturanakun', 'UserController@index')->name('pe
 /* -----STOK BARANG----- */
 
 Route::get('/dashboard/kasir/stokbarang', 'obatcontroller@tampilStokBarang_Kasir')->name('stokbarangkasir');
+Route::get('/dashboard/kasir/stokbarang/pencarian','obatcontroller@search');
 
 
 /* ------------------------------------------------------------------------------- */
