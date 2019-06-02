@@ -74,26 +74,50 @@ class obatcontroller extends Controller
         return redirect('/dashboard/kepala/stokbarang');
     }
     public function search(Request $request)
-    {
-     $cari = $request->search;
-    $dataobat = DB::table('dataobat')
-    ->where('kodebarang','like',"%".$cari."%")
-    ->orWhere('jenisbarang','like',"%".$cari."%")
-    ->paginate();
-    if(count($dataobat)>0)
-        return view('stokbarangkepala',['dataobat'=>$dataobat]);
-        else return view('stokbarangkepala',['dataobat'=>$dataobat])->with('errorMsg','Data tidak ditemukan');
+    { 
+        /*  
+            Ditambahkan $cabang buat search nya cuman nampilin berdasarkan cabang
+            
+            Ditambahkan where id_cabang biar kalo di klik search tanpa isi nanti
+            cuman muncul semua barang berdasarkan cabangnya aja
+            
+            Ditambah wherein id_cabang biar nampilin hasil searchnya berdasarkan cabangnya aja
+        */
+
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $cari = $request->search;
+        $dataobat = DB::table('dataobat')
+        ->where('id_cabang', $cabang->id_cabang)
+        ->where('kodebarang','like',"%".$cari."%")
+        ->orwhere('keteranganbarang','like',"%".$cari."%")
+        ->wherein('id_cabang', [$cabang->id_cabang])
+        ->paginate(10);
+        if(count($dataobat)>0 && $cari !='')
+            return view('stokbarangkepala',['dataobat'=>$dataobat]);
+            else return view('stokbarangkepala',['dataobat'=>$dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
     public function searchkasir(Request $request)
-    {
-     $cari = $request->search;
-    $dataobat = DB::table('dataobat')
-    ->where('kodebarang','like',"%".$cari."%")
-    ->orWhere('jenisbarang','like',"%".$cari."%")
-    ->paginate();
-    if(count($dataobat)>0)
-        return view('stokbarangkasir',['dataobat'=>$dataobat]);
-        else return view('stokbarangkasir',['dataobat'=>$dataobat])->with('errorMsg','Data tidak ditemukan');
+    { 
+        /*  
+            Ditambahkan $cabang buat search nya cuman nampilin berdasarkan cabang
+            
+            Ditambahkan where id_cabang biar kalo di klik search tanpa isi nanti
+            cuman muncul semua barang berdasarkan cabangnya aja
+            
+            Ditambah wherein id_cabang biar nampilin hasil searchnya berdasarkan cabangnya aja
+        */
+
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $cari = $request->search;
+        $dataobat = DB::table('dataobat')
+        ->where('id_cabang', $cabang->id_cabang)
+        ->where('kodebarang','like',"%".$cari."%")
+        ->orwhere('keteranganbarang','like',"%".$cari."%")
+        ->wherein('id_cabang', [$cabang->id_cabang])
+        ->paginate(10);
+        if(count($dataobat)>0 && $cari !='')
+            return view('stokbarangkasir',['dataobat'=>$dataobat]);
+            else return view('stokbarangkasir',['dataobat'=>$dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
 
 }

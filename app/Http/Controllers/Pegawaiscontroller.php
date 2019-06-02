@@ -58,14 +58,26 @@ class Pegawaiscontroller extends Controller
         return redirect('/dashboard/kepala/datakaryawankepala');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
+        /*  
+            Ditambahkan $cabang buat search nya cuman nampilin berdasarkan cabang
+            
+            Ditambahkan where id_cabang biar kalo di klik search tanpa isi nanti
+            cuman muncul semua barang berdasarkan cabangnya aja
+            
+            Ditambah wherein id_cabang biar nampilin hasil searchnya berdasarkan cabangnya aja
+        */
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
         $cari = $request->search;
         $datapegawai= DB::table('datapegawai')
+        ->where('id_cabang', $cabang->id_cabang)
         ->where('idkaryawan','like',"%".$cari."%")
         ->orWhere('namakaryawan','like',"%".$cari."%")
-        ->paginate();
+        ->wherein('id_cabang', [$cabang->id_cabang])
+        ->paginate(10);
         if(count($datapegawai)>0)
             return view ('datakaryawankepala',['datapegawai'=>$datapegawai]);
-            else return view('datakaryawankepala',['datapegawai'=>$datapegawai])->with('errMessage','Data tidak ditemukan');
+            else return view('datakaryawankepala',['datapegawai'=>$datapegawai])->with('errMessage','Masukkan kata kunci atau pegawai tidak ditemukan');
     }
 }
