@@ -115,7 +115,9 @@ Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
 
 
 /* -----DATA KARYAWAN----- */
-
+Route::get('/dashboard/kepala/datakaryawankepala/pencarian','PegawaisController@search');
+Route::post('/dashboard/kepala/editpegawai/updatepegawai','PegawaisController@updatepegawai')->name('updatepegawai');
+Route::get('/dashboard/kepala/datakaryawankepala/editkaryawan/{id}','PegawaisController@editkaryawan')->name('editkaryawan');
 Route::post('/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan','PegawaisController@store')->name('pegawai');
 Route::get('/dashboard/kepala/datakaryawankepala/tambahkaryawan', 'PegawaisController@inputPegawai')->name('tambahkaryawan');
 Route::get('/dashboard/kepala/datakaryawankepala', 'PegawaisController@index')->name('datakaryawankepala');

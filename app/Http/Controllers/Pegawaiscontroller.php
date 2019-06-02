@@ -41,4 +41,31 @@ class Pegawaiscontroller extends Controller
         DB::table('datapegawai')->where('id',$id)->delete();
         return redirect('/dashboard/kepala/datakaryawankepala');
     }
+    public function editkaryawan($id)
+    {
+        $datapegawai = DB::table('datapegawai')->where('id',$id)->get();
+        return view('editkaryawan',['datapegawai'=> $datapegawai]);
+    }
+    public function updatepegawai(request $request){
+        DB::table('datapegawai')->where('id',$request->id)->update([
+            'idkaryawan' =>$request->idkaryawan,
+            'namakaryawan' =>$request->namakaryawan,
+            'jeniskelamin' =>$request->jeniskelamin,
+            'alamat' =>$request->alamat,
+            'tanggallahir' =>$request->tanggallahir,
+            'role' =>$request->role
+        ]);
+        return redirect('/dashboard/kepala/datakaryawankepala');
+    }
+
+    public function search(Request $request){
+        $cari = $request->search;
+        $datapegawai= DB::table('datapegawai')
+        ->where('idkaryawan','like',"%".$cari."%")
+        ->orWhere('namakaryawan','like',"%".$cari."%")
+        ->paginate();
+        if(count($datapegawai)>0)
+            return view ('datakaryawankepala',['datapegawai'=>$datapegawai]);
+            else return view('datakaryawankepala',['datapegawai'=>$datapegawai])->with('errMessage','Data tidak ditemukan');
+    }
 }

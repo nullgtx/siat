@@ -8,8 +8,8 @@
             <h5>Cari Karyawan</h5>
         </div>
         <div class="col-sm-5">
-            <form class="form-inline md-form mr-auto mb-4">
-                <input class="form-control mr-sm-2" type="text" placeholder="ID atau Nama Karyawan" aria-label="Search">
+            <form class="form-inline md-form mr-auto mb-4" method="get" action="/dashboard/kepala/datakaryawankepala/pencarian">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="ID atau Nama Karyawan" aria-label="Search">
                 <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
             </form>
         </div>
@@ -42,7 +42,7 @@
                 <td>{{$pegawaiss->tanggallahir}}</td>
                 <td>{{$pegawaiss->role}}</td>
                 <td>
-                    <a href="{{ route('editkaryawan') }}">
+                    <a href="/dashboard/kepala/datakaryawankepala/editkaryawan/{{ $pegawaiss->id }}">
                         <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
                     <a href="/dashboard/kepala/datakaryawankepala/deletekaryawan/{{ $pegawaiss->id }}">
                         <input type="submit" class="btn btn-danger" value="Hapus"></a>
@@ -50,6 +50,9 @@
                 </tr>
                 @endforeach
             </tbody>
+            @if(!empty($errMessage))
+            <div class="alert alert-danger">{{ $errMessage }}</div>
+            @endif
         </table>
     </div>
 </div>
