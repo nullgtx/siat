@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-8">
       @foreach($dataobat as $obat)
-        <form id="editbarang" method="POST" action="/dashboard/kepala/editbarang/updatebarang">
+        <form id="editbarang" method="POST" action="/dashboard/kepala/stokbarang/editbarang/updatebarang">
         {{ csrf_field() }}
         <input type="hidden" name="id" value="{{ $obat->id }}">
         
