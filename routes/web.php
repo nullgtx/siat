@@ -110,13 +110,13 @@ Route::get('/dashboard/kepala/stokbarang/tambahbarang', 'obatcontroller@inputBar
 Route::post('/dashboard/kepala/stokbarang/tambahbarang/simpanbarang','obatController@store')->name('simpanbarang');
 Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@deleteBarang')->name('deleteBarang');
 Route::get('/dashboard/kepala/stokbarang/editbarang/{id}', 'obatcontroller@editBarang')->name('editbarang');
-Route::post('/dashboard/kepala/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
+Route::post('/dashboard/kepala/stokbarang/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
 Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
 
 
 /* -----DATA KARYAWAN----- */
 Route::get('/dashboard/kepala/datakaryawankepala/pencarian','PegawaisController@search');
-Route::post('/dashboard/kepala/editpegawai/updatepegawai','PegawaisController@updatepegawai')->name('updatepegawai');
+Route::post('/dashboard/kepala/datakaryawankepala/editkaryawan/updatekaryawan','PegawaisController@updatepegawai')->name('updatepegawai');
 Route::get('/dashboard/kepala/datakaryawankepala/editkaryawan/{id}','PegawaisController@editkaryawan')->name('editkaryawan');
 Route::post('/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan','PegawaisController@store')->name('pegawai');
 Route::get('/dashboard/kepala/datakaryawankepala/tambahkaryawan', 'PegawaisController@inputPegawai')->name('tambahkaryawan');
