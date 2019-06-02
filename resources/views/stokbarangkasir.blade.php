@@ -9,6 +9,7 @@
         </div>
         <div class="col-sm-5">
             <form class="form-inline md-form mr-auto mb-4" method="get" action="/dashboard/kasir/stokbarang/pencarian">
+                {{ csrf_field() }}
                 <input class="form-control mr-sm-2" name="search" type="search" placeholder="Kode atau Nama Barang" aria-label="Search">
                 <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
             </form>
