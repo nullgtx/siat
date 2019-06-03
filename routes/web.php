@@ -19,10 +19,6 @@ Route::get('/pilihcabang', function () {
     return view('pilihcabang');
 });
 
-Route::get('/absensikaryawan', function () {
-    return view('absensikaryawan');
-})->name('absensikaryawan');
-
 /* Route untuk KASIR */
 
 Route::get('/dashboard/kasir', function () {
@@ -100,6 +96,10 @@ Route::get('/dashboard/pemilik/datakaryawan', function () {
 /* ------------------------------------------------------------------------------ */
 
 Auth::routes();
+
+/* -----------------------------------ABSENSI------------------------------------ */
+
+Route::get('/absensikaryawan', 'AbsensiController@index')->name('absensikaryawan');
 
 /* --------------------------------KEPALA CABANG--------------------------------- */
 
