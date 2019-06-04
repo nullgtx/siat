@@ -65,14 +65,6 @@
                             </div>
                         </div>
                     </form>
-                    <!-- Untuk Absen Karyawan -->
-                    <div class="form-group row pt-1">
-                            <div class="col-md-8 offset-md-4">
-                            <a href="{{ route('absensikaryawan') }}">
-                                <input type="submit" class="btn btn-outline-success" value="Absen Karyawan"></a>
-                            </div>
-                        </div>
-                    <!-- Akhir dari Absen Karyawan -->
                 </div>
             </div>
         </div>
