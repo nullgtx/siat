@@ -8,6 +8,7 @@ use App\cabang;
 use App\Pegawais;
 use App\Absensi;
 use Auth;
+use Response;
 
 class AbsensiController extends Controller
 {
