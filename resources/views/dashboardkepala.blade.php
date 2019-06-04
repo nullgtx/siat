@@ -18,23 +18,9 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><b>Quick Tips</b></h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-success">Telusuri</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col pt-4">
-                <div class="row">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>Quick Tips</b></h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-success">Telusuri</a>
+                                <h5 class="card-title"><b>Absensi Karyawan</b></h5>
+                                <p class="card-text">Fitur ini digunakan untuk tanda absensi karyawan. Karyawan harus melakukan absensi sebelum bekerja.</p>
+                                <a href="{{ route('absensikaryawan') }}" class="btn btn-success">Absen Karyawan</a>
                             </div>
                         </div>
                     </div>
