@@ -1,4 +1,4 @@
-@extends('layouts.home')
+@extends('layouts.navkepala')
 @section('content')
 <div class="container">
     <h3>Absensi Karyawan</h3>
@@ -55,12 +55,12 @@
                                 keterangan: jQuery("input[name='keterangan']:checked").val(),
                         })
                         .then(function (response) {
-                            Command: swal("Sukses", "Absen Berhasil", "success");
+                            Command: swal("Sukses", "Absen berhasil Disimpan", "success");
                             console.log(response);
                             $("#send_form").html('Absen');
                         })
                         .catch(function (error) {
-                             Command: swal("Gagal", "Absen Gagal", "error");
+                             Command: swal("Gagal", "Absen tidak dapat disimpan", "error");
                             $("#send_form").html('Absen');
                             console.log(error);
                         });
