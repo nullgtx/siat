@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <h3>Absensi Karyawan</h3>
-    <h4><b>Apotek Aja Mriyang</b></h4>
+    <h4><b>{{$cabang->nama_cabang}}</b></h4>
     <div class="row pt-4">
         <div class="col">
         <!-- Isi Kolom Kesatu -->
