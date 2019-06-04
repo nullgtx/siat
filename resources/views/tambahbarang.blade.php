@@ -91,33 +91,31 @@
             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
             </div>
             <script>
-                            async function onSubmitClicked()  {
-                            
-                                    $("#send_form").html('Menyimpan...');
-                                    axios.post('http://localhost:8000/dashboard/kepala/stokbarang/tambahbarang/simpanbarang', {
-                                        id_cabang: '{{$cabang->id_cabang}}',
-                                        kodebarang: jQuery('#kodebarang').val(),
-                                        jenisbarang: jQuery('#jenisbarang').val(),
-                                        keteranganbarang: jQuery('#keteranganbarang').val(),
-                                        satuanbarang: jQuery('#satuanbarang').val(),
-                                        hargabarang: jQuery('#hargabarang').val(),
-                                        jumlahbarang: jQuery('#jumlahbarang').val(),
-                                        tanggalmasuk: jQuery('#tanggalmasuk').val(),
-                                        tanggalexpired: jQuery('#tanggalexpired').val()
-
-                                    })
-                                    .then(function (response) {
-                                            Command: swal("Sukses", "Berhasil Menambahkan Data", "success");
-                                            console.log(response);
-                                            $("#send_form").html('Simpan');
-                                        })
-                                        .catch(function (error) {
-                                          Command: swal("Gagal", "Gagal Menambahkan data", "error");
-                                            $("#send_form").html('Simpan');
-                                            console.log(error);
-                                        });
-                            }
-                        </script>
+              async function onSubmitClicked()  {
+                $("#send_form").html('Menyimpan...');
+                  axios.post('http://localhost:8000/dashboard/kepala/stokbarang/tambahbarang/simpanbarang', {
+                    id_cabang: '{{$cabang->id_cabang}}',
+                    kodebarang: jQuery('#kodebarang').val(),
+                    jenisbarang: jQuery('#jenisbarang').val(),
+                    keteranganbarang: jQuery('#keteranganbarang').val(),
+                    satuanbarang: jQuery('#satuanbarang').val(),
+                    hargabarang: jQuery('#hargabarang').val(),
+                    jumlahbarang: jQuery('#jumlahbarang').val(),
+                    tanggalmasuk: jQuery('#tanggalmasuk').val(),
+                    tanggalexpired: jQuery('#tanggalexpired').val()
+                  })
+                .then(function (response) {
+                  Command: swal("Sukses", "Berhasil menambahkan barang", "success");
+                  console.log(response);
+                  $("#send_form").html('Simpan');
+                })
+                .catch(function (error) {
+                  Command: swal("Gagal", "Gagal menambahkan barang", "error");
+                  $("#send_form").html('Simpan');
+                  console.log(error);
+                });
+              }
+            </script>
             <div class="col-auto">
               <a class="btn btn-primary" href="{{ route('stokbarangkepala') }}" role="button">Kembali</a>
             </div>

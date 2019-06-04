@@ -60,7 +60,7 @@
                             $("#send_form").html('Absen');
                         })
                         .catch(function (error) {
-                             Command: swal("Gagal", "Absen tidak dapat disimpan", "error");
+                             Command: swal("Gagal", "Absen tidak dapat disimpan atau absen sudah dimasukkan", "error");
                             $("#send_form").html('Absen');
                             console.log(error);
                         });

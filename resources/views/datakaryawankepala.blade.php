@@ -25,7 +25,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">ID karyawan</th>
                 <th scope="col">Nama</th>
-                <th scope="col">jenis Kelamin</th>
+                <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">Role</th>

@@ -51,8 +51,9 @@
             <div class="col-9">
               <select id="role" class="form-control" required>
                 <option value="" selected disable>Pilih Role Karyawan</option>
-                <option value="Pemilik">Pemilik</option>
-                <option value="Karyawan">Karyawan</option>
+                <option value="Apoteker">Apoteker</option>
+                <option value="Asisten Apoteker">Asisten Apoteker</option>
+                <option value="Staff Keuangan">Staff Keuangan</option>
                 <option value="Kasir">Kasir</option>
               </select>
             </div>
@@ -63,37 +64,29 @@
             <button type="submit" onclick="onSubmitClicked();" id="send_form" class="btn btn-outline-success">Simpan</button>
             </div>
             <script>
-                            async function onSubmitClicked()  {
-                            
-                                    $("#send_form").html('Menyimpan...');
-                                    axios.post('http://localhost:8000/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan', {
-                                        id_cabang: '{{$cabang->id_cabang}}',
-                                        idkaryawan: jQuery('#idkaryawan').val(),
-                                        namakaryawan: jQuery('#namakaryawan').val(),
-                                        jeniskelamin: jQuery('#jeniskelamin').val(),
-                                        alamat: jQuery('#alamat').val(),
-                                        tanggallahir: jQuery('#tanggallahir').val(),
-                                        role: jQuery('#role').val()
-                                    })
-                                    .then(function (response) {
-                                      Command: swal("Sukses", "Berhasil Menambahkan Data", "success");
-
-                                            console.log(response);
-                                            $("#send_form").html('Simpan');
-                                        })
-                                        .catch(function (error) {
-                                          Command: swal("Gagal", "Gagal Menambahkan data", "error");
-                                            $("#send_form").html('Simpan');
-                                            console.log(error);
-                                        });
-                            }
-                        </script>
-
-
-
-
-
-
+              async function onSubmitClicked()  {
+                $("#send_form").html('Menyimpan...');
+                  axios.post('http://localhost:8000/dashboard/kepala/datakaryawankepala/tambahkaryawan/simpan', {
+                    id_cabang: '{{$cabang->id_cabang}}',
+                    idkaryawan: jQuery('#idkaryawan').val(),
+                    namakaryawan: jQuery('#namakaryawan').val(),
+                    jeniskelamin: jQuery('#jeniskelamin').val(),
+                    alamat: jQuery('#alamat').val(),
+                    tanggallahir: jQuery('#tanggallahir').val(),
+                    role: jQuery('#role').val()
+                  })
+                .then(function (response) {
+                  Command: swal("Sukses", "Berhasil menambahkan karyawan", "success");
+                  console.log(response);
+                  $("#send_form").html('Simpan');
+                })
+                .catch(function (error) {
+                  Command: swal("Gagal", "Gagal menambahkan karyawan", "error");
+                  $("#send_form").html('Simpan');
+                  console.log(error);
+                });
+              }
+            </script>
 
             <div class="col-auto">
               <a class="btn btn-primary" href="{{ route('datakaryawankepala') }}" role="button">Kembali</a>
