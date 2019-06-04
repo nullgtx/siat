@@ -99,7 +99,8 @@ Auth::routes();
 
 /* -----------------------------------ABSENSI------------------------------------ */
 
-Route::get('/absensikaryawan', 'AbsensiController@index')->name('absensikaryawan');
+Route::get('/dashboard/kepala/absensikaryawan', 'AbsensiController@index')->name('absensikaryawan');
+Route::post('/dashboard/kepala/absensikaryawan/simpanabsen', 'AbsensiController@store')->name('simpanabsen');
 
 /* --------------------------------KEPALA CABANG--------------------------------- */
 
