@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Data Karyawan Apotek {{Auth::user()->id_cabang}}</b></h4>
+    <h4>Data Karyawan Apotek</h4>
+    <h4><b>{{$cabang->nama_cabang}}</b></h4>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Karyawan</h5>
@@ -28,7 +29,7 @@
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Alamat</th>
                 <th scope="col">Tanggal Lahir</th>
-                <th scope="col">Role</th>
+                <th scope="col">Jabatan</th>
                 <th scope="col">Aksi</th>
                 </tr>
             </thead>

@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Stok Barang Apotek {{Auth::user()->id_cabang}}</b></h4>
+    <h4>Stok Barang Apotek</h4>
+    <h4><b>{{$cabang->nama_cabang}}</b></h4>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Barang</h5>

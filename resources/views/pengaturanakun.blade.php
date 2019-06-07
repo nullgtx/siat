@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Pengaturan Akun</b></h4>
+    <h4>Pengaturan Akun</h4>
+    <h4><b>{{$cabang->nama_cabang}}</b></h4>
     <div class="row justify-content-center pt-3">
         <table class="table table-striped">
             <thead>
