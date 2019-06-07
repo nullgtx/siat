@@ -47,10 +47,11 @@
           </div>
 
           <div class="form-group row">
-            <label for="example-text-input" class="col-3 col-form-label">Role</label>
+            <label for="example-text-input" class="col-3 col-form-label">Jabatan</label>
             <div class="col-9">
               <select id="role" class="form-control" required>
-                <option value="" selected disable>Pilih Role Karyawan</option>
+                <option value="" selected disable>Pilih Jabatan Karyawan</option>
+                <option value="Kepala Cabang">Kepala Cabang</option>
                 <option value="Apoteker">Apoteker</option>
                 <option value="Asisten Apoteker">Asisten Apoteker</option>
                 <option value="Staff Keuangan">Staff Keuangan</option>
