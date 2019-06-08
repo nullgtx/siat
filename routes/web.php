@@ -37,10 +37,6 @@ Route::get('/dashboard/kasir/historitransaksi', function () {
 
 /* Route untuk Kepala Cabang */
 
-Route::get('/dashboard/kepala', function () {
-    return view('dashboardkepala');
-})->name('dashboardkepala');
-
 Route::get('/dashboard/kepala/datakaryawan/tambahkaryawan', function () {
     return view('tambahkaryawan');
 })->name('tambahkaryawan');
@@ -53,17 +49,9 @@ Route::get('/dashboard/kepala/datakaryawan', function () {
     return view('datakaryawankepala');
 })->name('datakaryawankepala');
 
-Route::get('/dashboard/kepala/tambahgaji', function () {
-    return view('tambahgaji');
-})->name('tambahgaji');
-
 Route::get('/dashboard/kepala/editgaji', function () {
     return view('editgaji');
 })->name('editgaji');
-
-Route::get('/dashboard/kepala/gajikaryawan', function () {
-    return view('gajikaryawankepala');
-})->name('gajikaryawankepala');
 
 Route::get('/dashboard/kepala/laporanbarang', function () {
     return view('kepalalaporanbarang');
@@ -104,6 +92,11 @@ Route::post('/dashboard/kepala/absensikaryawan/simpanabsen', 'AbsensiController@
 
 /* --------------------------------KEPALA CABANG--------------------------------- */
 
+/* -------DASHBOARD------ */
+
+Route::get('/dashboard/kepala', 'cabangcontroller@indexKepala')->name('dashboardkepala');
+
+
 /* -----STOK BARANG------ */
 
 Route::get('/dashboard/kepala/stokbarang', 'obatcontroller@index')->name('stokbarangkepala');
@@ -116,6 +109,7 @@ Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
 
 
 /* -----DATA KARYAWAN----- */
+
 Route::get('/dashboard/kepala/datakaryawankepala/pencarian','PegawaisController@search');
 Route::post('/dashboard/kepala/datakaryawankepala/editkaryawan/updatekaryawan','PegawaisController@updatepegawai')->name('updatepegawai');
 Route::get('/dashboard/kepala/datakaryawankepala/editkaryawan/{id}','PegawaisController@editkaryawan')->name('editkaryawan');
@@ -124,6 +118,12 @@ Route::get('/dashboard/kepala/datakaryawankepala/tambahkaryawan', 'PegawaisContr
 Route::get('/dashboard/kepala/datakaryawankepala', 'PegawaisController@index')->name('datakaryawankepala');
 Route::get('/dashboard/kepala/datakaryawankepala/deletekaryawan/{id}', 'PegawaisController@deleteKaryawan')->name('deleteKaryawan');
 
+
+/* ------GAJI KARYAWAN------ */
+
+Route::get('/dashboard/kepala/gajikaryawan', 'GajiKaryawanController@index')->name('gajikaryawankepala');
+Route::get('/dashboard/kepala/gajikaryawan/buatgaji/{id}', 'GajiKaryawanController@buatGaji')->name('tambahgaji');
+Route::post('/dashboard/kepala/gajikaryawan/buatgaji/{id}/simpangaji', 'GajiKaryawanController@store')->name('simpangaji');
 
 /* -----PENGATURAN AKUN----- */
 
