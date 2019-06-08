@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Gaji Karyawan Apotek {{Auth::user()->id_cabang}}</b></h4>
+    <h4>Gaji Karyawan</h4>
+    <h4><b>{{$cabang->nama_cabang}}</b></h4>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Karyawan</h5>
@@ -13,71 +14,45 @@
                 <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
             </form>
         </div>
-        <div class="col-sm-5">
-            <a href="{{ route('tambahgaji') }}"><input type="submit" class="btn btn-outline-success" value="Buat Gaji Karyawan"></a>
-        </div>
     </div>
     <div class="row justify-content-center">
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col">No</th>
+                <th scope="col">ID</th>
                 <th scope="col">ID karyawan</th>
                 <th scope="col">Nama</th>
-                <th scope="col">Role</th>
-                <th scope="col">Absensi</th>
-                <th scope="col">Tanggal Masuk</th>
-                <th scope="col">Gaji</th>
+                <th scope="col">Jenis Kelamin</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Tanggal Lahir</th>
+                <th scope="col">Jabatan</th>
                 <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>xxx</td>
-                <td>Udin</td>
-                <td>Kasir</td>
-                <td>30 hari</td>
-                <td>14 agustus 1994</td>
-                <td>2100000</td>
-                <td>
-                    <a href="{{ route('editgaji') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
+            @foreach($datapegawai as $pegawaiss)
                 <tr>
-                <th scope="row">1</th>
-                <td>xxx</td>
-                <td>Udin</td>
-                <td>Kasir</td>
-                <td>30 hari</td>
-                <td>14 agustus 1994</td>
-                <td>2100000</td>
+                <td>{{$pegawaiss->id}}</td>
+                <td>{{$pegawaiss->idkaryawan}}</td>
+                <td>{{$pegawaiss->namakaryawan}}</td>
+                <td>{{$pegawaiss->jeniskelamin}}</td>
+                <td>{{$pegawaiss->alamat}}</td>
+                <td>{{$pegawaiss->tanggallahir}}</td>
+                <td>{{$pegawaiss->role}}</td>
                 <td>
-                    <a href="{{ route('editgaji') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
+                    <a href="/dashboard/kepala/gajikaryawan/buatgaji/{{ $pegawaiss->id }}">
+                        <input type="submit" class="btn btn-primary" value="Buat Gaji"></a>&nbsp;
+                    <a href="/dashboard/kepala/gajikaryawan/editgaji/{{ $pegawaiss->id }}">
+                        <input type="submit" class="btn btn-info text-white" value="Edit"></a>&nbsp;
+                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $pegawaiss->id }}">
+                        <input type="submit" class="btn btn-success" value="Cetak Gaji"></a>
                 </td>
                 </tr>
-                <tr>
-                <th scope="row">1</th>
-                <td>xxx</td>
-                <td>Udin</td>
-                <td>Kasir</td>
-                <td>30 hari</td>
-                <td>14 agustus 1994</td>
-                <td>2100000</td>
-                <td>
-                    <a href="{{ route('editgaji') }}">
-                        <input type="submit" class="btn btn-primary" value="Edit"></a>&nbsp;
-                    <a href="#">
-                        <input type="submit" class="btn btn-danger" value="Hapus"></a>
-                </td>
-                </tr>
+                @endforeach
             </tbody>
+            @if(!empty($errMessage))
+            <div class="alert alert-danger">{{ $errMessage }}</div>
+            @endif
         </table>
     </div>
 </div>
