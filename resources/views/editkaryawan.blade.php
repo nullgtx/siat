@@ -54,9 +54,11 @@
             <div class="col-9">
               <select id="role" name="role" class="form-control" required>
                 <option value="{{ $karyawan->role}}" selected>{{ $karyawan->role}}</option>
-                <option value="1">Pemilik</option>
-                <option value="2">Karyawan</option>
-                <option value="3">Kasir</option>
+                <option value="Kepala Cabang">Kepala Cabang</option>
+                <option value="Apoteker">Apoteker</option>
+                <option value="Asisten Apoteker">Asisten Apoteker</option>
+                <option value="Staff Keuangan">Staff Keuangan</option>
+                <option value="Kasir">Kasir</option>
               </select>
             </div>
           </div>
