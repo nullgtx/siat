@@ -19,12 +19,15 @@ class GajiKaryawanController extends Controller
         $datapegawai = Pegawais::where('id_cabang', $cabang->id_cabang)->get();
         return view('gajikaryawankepala', ['cabang' => $cabang, 'datapegawai' => $datapegawai]);
     }
-    public function buatGaji(){
+    public function buatGaji($idkaryawan){
         $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
-        $datapegawai = Pegawais::where('id_cabang', $cabang->id_cabang)->first();
-        $absensi = Absensi::where('id_cabang', $cabang->id_cabang)->first();
+        $datapegawai = Pegawais::where('id_cabang', $cabang->id_cabang)
+                                ->where('idkaryawan', $idkaryawan)->first();
+        $absensi = Absensi::where('id_cabang', $cabang->id_cabang)
+                                ->where('idkaryawan', $idkaryawan)->first();
         $jumlahalfa = DB::table('absensis')
         ->where('keterangan','Alfa')
+        ->where('idkaryawan', $idkaryawan)
         ->wherein('id_cabang', [$cabang->id_cabang])
         ->count();
         
@@ -82,5 +85,15 @@ class GajiKaryawanController extends Controller
         return Response::json([
             'action' => 'save_gajikaryawan'
                 ], 201);
+    }
+    public function editGaji($id)
+    {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $gajikaryawan = DB::table('gajikaryawan')->where('id',$id)->get();
+        $jumlahalfa = DB::table('absensis')
+        ->where('keterangan','Alfa')
+        ->wherein('id_cabang', [$cabang->id_cabang])
+        ->count();
+        return view('editgaji',['gajikaryawan' => $gajikaryawan,'cabang' => $cabang,'jumlahalfa' => $jumlahalfa]);
     }
 }

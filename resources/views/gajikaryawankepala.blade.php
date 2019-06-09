@@ -40,11 +40,11 @@
                 <td>{{$pegawaiss->tanggallahir}}</td>
                 <td>{{$pegawaiss->role}}</td>
                 <td>
-                    <a href="/dashboard/kepala/gajikaryawan/buatgaji/{{ $pegawaiss->id }}">
+                    <a href="/dashboard/kepala/gajikaryawan/buatgaji/{{ $pegawaiss->idkaryawan }}">
                         <input type="submit" class="btn btn-primary" value="Buat Gaji"></a>&nbsp;
-                    <a href="/dashboard/kepala/gajikaryawan/editgaji/{{ $pegawaiss->id }}">
+                    <a href="/dashboard/kepala/gajikaryawan/editgaji/{{ $pegawaiss->idkaryawan }}">
                         <input type="submit" class="btn btn-info text-white" value="Edit"></a>&nbsp;
-                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $pegawaiss->id }}">
+                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $pegawaiss->idkaryawan }}">
                         <input type="submit" class="btn btn-success" value="Cetak Gaji"></a>
                 </td>
                 </tr>

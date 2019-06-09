@@ -9,7 +9,7 @@
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Tanggal</label>
             <div class="col-9">
-              <input type="date" id="tanggal" class="form-control">
+              <input type="date" id="tanggal" class="form-control" required>
             </div>
           </div>
           
@@ -105,11 +105,11 @@
 
           <div class="form-group row">
             <div class="col-auto">
-              <button type="submit" onclick="onSubmitClicked();" class="btn btn-success">Simpan</button>
+              <button type="submit" onclick="onSubmitClicked();" class="btn btn-success" id="send_form">Simpan</button>
                 <script>
                     async function onSubmitClicked()  {   
                         $("#send_form").html('Menyimpan');
-                            axios.post('http://localhost:8000/dashboard/kepala/gajikaryawan/buatgaji/{id}/simpangaji', {
+                            axios.post('http://localhost:8000/dashboard/kepala/gajikaryawan/buatgaji/{idkaryawan}/simpangaji', {
                                 id_cabang: '{{$cabang->id_cabang}}',
                                 idkaryawan: jQuery('#idkaryawan').val(),
                                 tanggal: jQuery('#tanggal').val(),
