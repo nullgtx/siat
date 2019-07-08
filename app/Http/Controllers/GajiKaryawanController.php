@@ -11,6 +11,7 @@ use App\GajiKaryawan;
 use App\Absensi;
 use Auth;
 use Response;
+use PDF;
 
 class GajiKaryawanController extends Controller
 {
@@ -86,14 +87,17 @@ class GajiKaryawanController extends Controller
             'action' => 'save_gajikaryawan'
                 ], 201);
     }
-    public function editGaji($id)
+    public function lihatGaji($idkaryawan)
     {
-        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
-        $gajikaryawan = DB::table('gajikaryawan')->where('id',$id)->get();
-        $jumlahalfa = DB::table('absensis')
-        ->where('keterangan','Alfa')
-        ->wherein('id_cabang', [$cabang->id_cabang])
-        ->count();
-        return view('editgaji',['gajikaryawan' => $gajikaryawan,'cabang' => $cabang,'jumlahalfa' => $jumlahalfa]);
+        $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
+        return view('lihatgaji', ['gajikaryawan' => $gajikaryawan]);      
     }
+
+    public function exportPDF($idkaryawan)
+    {
+        $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
+        $pdf = PDF::loadView('lihatgaji', ['gajikaryawan' => $gajikaryawan]);
+        return $pdf->download('slipgaji'.date('Y-m-d_H-i-s').'.pdf');
+    }
+    
 }

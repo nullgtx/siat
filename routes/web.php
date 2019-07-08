@@ -119,7 +119,9 @@ Route::get('/dashboard/kepala/datakaryawankepala/deletekaryawan/{id}', 'Pegawais
 Route::get('/dashboard/kepala/gajikaryawan', 'GajiKaryawanController@index')->name('gajikaryawankepala');
 Route::get('/dashboard/kepala/gajikaryawan/buatgaji/{idkaryawan}', 'GajiKaryawanController@buatGaji')->name('tambahgaji');
 Route::post('/dashboard/kepala/gajikaryawan/buatgaji/{idkaryawan}/simpangaji', 'GajiKaryawanController@store')->name('simpangaji');
-Route::get('/dashboard/kepala/gajikaryawan/editgaji/{idkaryawan}', 'GajiKaryawanController@editGaji')->name('editgaji');
+Route::get('/dashboard/kepala/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGaji')->name('lihatgaji');
+Route::get('/dashboard/kepala/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDF')->name('slipgaji');
+
 
 /* -----PENGATURAN AKUN----- */
 
