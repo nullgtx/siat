@@ -120,4 +120,26 @@ class obatcontroller extends Controller
             else return view('stokbarangkasir',['dataobat'=>$dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
 
+    public function searchobatpemilik(Request $request, $id_cabang)
+    { 
+        /*  
+            Ditambahkan $cabang buat search nya cuman nampilin berdasarkan cabang
+            
+            Ditambahkan where id_cabang biar kalo di klik search tanpa isi nanti
+            cuman muncul semua barang berdasarkan cabangnya aja
+            
+            Ditambah wherein id_cabang biar nampilin hasil searchnya berdasarkan cabangnya aja
+        */
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $cari = $request->search;
+        $dataobat = DB::table('dataobat')
+        ->where('kodebarang','like',"%".$cari."%")
+        ->orwhere('keteranganbarang','like',"%".$cari."%")
+        ->wherein('id_cabang', [$cabang->id_cabang])
+        ->paginate(10);
+        if(count($dataobat)>0 && $cari !='')
+        return view('stokbarangpemilik', ['cabang' => $cabang, 'dataobat' => $dataobat]);
+            else return view('stokbarangpemilik', ['cabang' => $cabang, 'dataobat' => $dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
+    }
+
 }

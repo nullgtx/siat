@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -34,20 +38,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('datakaryawanpemilik') }}">Data Karyawan<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{route('stokbarangpemilik', ['id_cabang' => $cabang->id_cabang]) }}">Stok Barang<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stokbarangpemilik') }}">Stok Barang<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="">Barang Masuk Keluar<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Laporan
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Laporan Penjualan</a>
-                                <a class="dropdown-item" href="#">Laporan Barang Masuk Keluar</a>
-                                <a class="dropdown-item" href="#">Laporan Gaji Karyawan</a>
-                            </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('karyawanpemilik', ['id_cabang' => $cabang->id_cabang]) }}">Data Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('halamanutama');
 
-Route::get('/pilihcabang', function () {
-    return view('pilihcabang');
-});
+
 
 /* Route untuk KASIR */
 
@@ -73,9 +71,6 @@ Route::get('/dashboard/pemilik', function () {
     return view('dashboardpemilik');
 })->name('dashboardpemilik');
 
-Route::get('/dashboard/pemilik/stokbarang', function () {
-    return view('stokbarangpemilik');
-})->name('stokbarangpemilik');
 
 Route::get('/dashboard/pemilik/datakaryawan', function () {
     return view('datakaryawanpemilik');
@@ -146,6 +141,11 @@ Route::get('/dashboard/kasir/stokbarang/pencarian','obatcontroller@searchkasir')
 
 
 /* -----------------------------------PEMILIK------------------------------------- */
+Route::get('/dashboard/pemilik/pilihcabang', 'cabangcontroller@indexCabang')->name('pilihcabang');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat','cabangcontroller@tampilisicabang')->name('stokbarangpemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat/pencarian','obatcontroller@searchobatpemilik')->name('pencarianobatpemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan','cabangcontroller@tampilkaryawancabang')->name('karyawanpemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan/pencarian','PegawaisController@searchkaryawan')->name('pencariankaryawan');
 
 /* -----STOK BARANG----- */
 
