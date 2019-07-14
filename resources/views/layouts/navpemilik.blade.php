@@ -41,10 +41,17 @@
                             <a class="nav-link" href="{{route('stokbarangpemilik', ['id_cabang' => $cabang->id_cabang]) }}">Stok Barang<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Barang Masuk Keluar<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{route('karyawanpemilik', ['id_cabang' => $cabang->id_cabang]) }}">Data Karyawan<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Laporan
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Laporan Penjualan</a>
+                                <a class="dropdown-item" href="#">Laporan Barang Masuk Keluar</a>
+                                <a class="dropdown-item" href="#">Laporan Gaji Karyawan</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
