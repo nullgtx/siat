@@ -9,16 +9,16 @@
         <div class="col">
 
             <div class="form-group row">
-                <label for="example-text-input" class="col-5 col-form-label">ID Transaksi</label>
+                <label for="example-text-input" class="col-5 col-form-label">Nama Kasir</label>
                 <div class="col-7">
-                    <input class="form-control" type="text" placeholder="Kode Transaksi" id="idtransaksi" required disabled>
+                    <input class="form-control" type="text" placeholder="Nama Kasir" value="{{Auth::user()->name}}" id="namakasir" required disabled>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="example-date-input" class="col-5 col-form-label">Tanggal Transaksi</label>
                 <div class="col-7">
-                    <input class="form-control" type="date" id="tanggaltransaksi" required>
+                    <input class="form-control" type="date" value="{{ date('Y-m-d') }}"id="tanggaltransaksi" disabled required>
                 </div>
             </div>
 
