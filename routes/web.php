@@ -153,7 +153,7 @@ Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat/pencarian','obatcontr
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan','cabangcontroller@tampilkaryawancabang')->name('karyawanpemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan/pencarian','PegawaisController@searchkaryawan')->name('pencariankaryawan');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan','cabangcontroller@tampilgajicabang')->name('tampilgajipemilik');
-Route::get('/dashboard/pemilik/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGaji')->name('lihatgajipemilik');
+Route::get('/dashboard/pemilik/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
 Route::get('/dashboard/pemilik/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDF')->name('slipgajipemilik');
 
 /* -----STOK BARANG----- */

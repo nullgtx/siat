@@ -93,7 +93,11 @@ class GajiKaryawanController extends Controller
         return view('lihatgaji', ['gajikaryawan' => $gajikaryawan]);      
     }
 
-    
+        public function lihatGajipemilik($idkaryawan)
+    {
+        $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
+        return view('lihatgajipemilik', ['gajikaryawan' => $gajikaryawan]);      
+    }
 
     public function exportPDF($id)
     {

@@ -31,8 +31,7 @@
                 <td>
                     <a href="/dashboard/pemilik/gajikaryawan/lihatgaji/{{ $pegawaiss->idkaryawan }}">
                         <input type="submit" class="btn btn-info text-white" value="Lihat Gaji"></a>&nbsp;
-                    <a href="/dashboard/pemilik/gajikaryawan/cetakgaji/{{ $pegawaiss->idkaryawan }}">
-                        <input type="submit" class="btn btn-success" value="Cetak Gaji"></a>
+
                 </td>
                 </tr>
                 @endforeach
