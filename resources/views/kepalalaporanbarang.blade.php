@@ -21,6 +21,9 @@
             <div class="col-md-2">
               <input class="form-control" type="date" id="tanggallahir" required>
             </div>
+            <div class="col-md-2">
+              <input class="form-control" type="month" id="tanggallahir" required>
+            </div>
           </div>
         </form>
 

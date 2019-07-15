@@ -93,10 +93,10 @@ class GajiKaryawanController extends Controller
         return view('lihatgaji', ['gajikaryawan' => $gajikaryawan]);      
     }
 
-    public function exportPDF($idkaryawan)
+    public function exportPDF($tanggal)
     {
-        $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
-        $pdf = PDF::loadView('lihatgaji', ['gajikaryawan' => $gajikaryawan]);
+        $gajikaryawan = DB::table('gajikaryawan')->where('tanggal',$tanggal)->get();
+        $pdf = PDF::loadView('cetakgaji', ['gajikaryawan' => $gajikaryawan]);
         return $pdf->download('slipgaji'.date('Y-m-d_H-i-s').'.pdf');
     }
     
