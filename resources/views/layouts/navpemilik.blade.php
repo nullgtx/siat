@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/dashboard/pemilik') }}">
+                <a class="navbar-brand" href="{{ url('/dashboard/pemilik/pilihcabang') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -50,7 +50,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Laporan Penjualan</a>
                                 <a class="dropdown-item" href="#">Laporan Barang Masuk Keluar</a>
-                                <a class="dropdown-item" href="#">Laporan Gaji Karyawan</a>
+                                <a class="dropdown-item" href="{{route('tampilgajipemilik', ['id_cabang' => $cabang->id_cabang]) }}">Laporan Gaji Karyawan</a>
                             </div>
                         </li>
                         <li class="nav-item">
