@@ -48,7 +48,11 @@
             <div class="form-group row">
                 <label for="example-text-input" class="col-5 col-form-label">Kode/Nama Barang</label>
                 <div class="col-7">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Kode atau Nama Barang" aria-label="Search">
+                    <select class="form-control mr-sm-2" type="text" placeholder="Kode atau Nama Barang" aria-label="Search">
+                    @foreach($dataobat as $obat)
+                    <option value ="{{ $obat->kodebarang }}"> ({{ $obat->kodebarang }}) {{ $obat->keteranganbarang }} </option>
+                    @endforeach
+                    </select>
                 </div>
             </div>
 

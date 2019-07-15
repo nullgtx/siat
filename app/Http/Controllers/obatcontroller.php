@@ -142,4 +142,10 @@ class obatcontroller extends Controller
             else return view('stokbarangpemilik', ['cabang' => $cabang, 'dataobat' => $dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
 
+    public function loadBarang(Request $request) {
+        $cari = $request->kodebarang;
+        $id_cabang = $request->id_cabang;
+        $data = DB::table('dataobat')->where('kodebarang',$cari)->where('id_cabang', $id_cabang)->get();
+        return response()->json($data);
+    }
 }
