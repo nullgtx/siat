@@ -28,7 +28,7 @@
                 <td>{{$gajiss->tunjangan}}</td>
                 <td>{{$gajiss->gajiakhir}}</td>
                 <td>
-                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $gajiss->tanggal }}">
+                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $gajiss->id }}">
                         <input type="submit" class="btn btn-success" value="Cetak Gaji"></a>
                 </td>
                 </tr>
