@@ -54,7 +54,7 @@
                 <td>{{$gajiss->tunjangan}}</td>
                 <td>{{$gajiss->gajiakhir}}</td>
                 <td>
-                    <a href="/dashboard/kepala/gajikaryawan/cetakgaji/{{ $gajiss->id }}">
+                    <a href="/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/gajikaryawan/cetakgaji/{{ $gajiss->id }}">
                         <input type="submit" class="btn btn-success" value="Cetak Gaji"></a>
                 </td>
                 </tr>
@@ -62,7 +62,7 @@
             </tbody>
   </table>
   <div>
-            <a href="{{ url('/dashboard/pemilik/pilihcabang') }}">
+            <a href="{{route('tampilgajipemilik', ['id_cabang' => $cabang->id_cabang]) }}">
             <input type="submit" class="btn btn-primary" value="Kembali"></a>
         </div>
   </div>

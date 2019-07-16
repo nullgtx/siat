@@ -89,34 +89,32 @@ class GajiKaryawanController extends Controller
     }
     public function lihatGaji($idkaryawan)
     {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+       // $gajikaryawan = GajiKaryawan::where('id_cabang', $cabang->id_cabang)->get();
         $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
-        return view('lihatgaji', ['gajikaryawan' => $gajikaryawan]);      
+        //return view('lihatgaji', ['gajikaryawan' => $gajikaryawan]);
+        return view('lihatgaji', ['cabang' => $cabang,'gajikaryawan' => $gajikaryawan]);         
     }
 
-        public function lihatGajipemilik($idkaryawan)
+        public function lihatGajipemilik($id_cabang,$idkaryawan)
     {
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
         $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
-        return view('lihatgajipemilik', ['gajikaryawan' => $gajikaryawan]);      
+        return view('lihatgajipemilik', ['cabang' => $cabang,'gajikaryawan' => $gajikaryawan]);      
     }
 
     public function exportPDF($id)
     {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
         $gajikaryawan = DB::table('gajikaryawan')->where('id',$id)->get();
-        $pdf = PDF::loadView('cetakgaji', ['gajikaryawan' => $gajikaryawan]);
+        $pdf = PDF::loadView('cetakgaji', ['cabang' => $cabang,'gajikaryawan' => $gajikaryawan]);
         return $pdf->download('slipgaji'.date('Y-m-d_H-i-s').'.pdf');
     }
-    
-    public function lihatGaji1($idkaryawan)
+    public function exportPDFpemilik($id_cabang,$id)
     {
-        $gajikaryawan = DB::table('gajikaryawan')->where('idkaryawan',$idkaryawan)->get();
-        return view('lihatgajipemilik', ['gajikaryawan' => $gajikaryawan]);      
-    }
-
-
-    public function exportPDF1($tanggal)
-    {
-        $gajikaryawan = DB::table('gajikaryawan')->where('tanggal',$tanggal)->get();
-        $pdf = PDF::loadView('cetakgaji', ['gajikaryawan' => $gajikaryawan]);
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $gajikaryawan = DB::table('gajikaryawan')->where('id',$id)->get();
+        $pdf = PDF::loadView('cetakgaji', ['cabang' => $cabang,'gajikaryawan' => $gajikaryawan]);
         return $pdf->download('slipgaji'.date('Y-m-d_H-i-s').'.pdf');
     }
 }

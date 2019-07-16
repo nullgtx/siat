@@ -8,40 +8,71 @@
   <style type="text/css">
     table tr td,
     table tr th{
-      font-size: 9pt;
+
+      font-size: 12px;
+
+    }
+    hr {
+      border-style: solid;
+  border-width: thin;
+  border-color: black;
+    }
+    body{
+      margin-top: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
     }
   </style>
+<br>
+<br>
   <center>
-    <h5>Slip Gaji Karyawan</h4>
+    <h3><b>APOTEK KARYA SEHAT CABANG {{$cabang->nama_cabang}}</b></h3>
+    <h4>{{$cabang->alamat_cabang}}</h4>
   </center>
- 
-  <table class='table table-bordered'>
-    <thead>
-                <tr>
-                <th scope="col">ID karyawan</th>
-                <th scope="col">Tanggal</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jabatan</th>
-                <th scope="col">Gaji Pokok</th>
-                <th scope="col">Potongan Gaji</th>
-                <th scope="col">Gaji Tunjangan</th>
-                <th scope="col">Total Gaji Akhir</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($gajikaryawan as $gajiss)
-                <tr>
-                <td>{{$gajiss->idkaryawan}}</td>
-                <td>{{$gajiss->tanggal}}</td>
-                <td>{{$gajiss->namakaryawan}}</td>
-                <td>{{$gajiss->jabatan}}</td>
-                <td>{{$gajiss->gajipokok}}</td>
-                <td>{{$gajiss->potongan}}</td>
-                <td>{{$gajiss->tunjangan}}</td>
-                <td>{{$gajiss->gajiakhir}}</td>
-                </tr>
-                @endforeach
-            </tbody>
+
+  <hr style="
+  width: 90%;">
+  <center>
+  <h3><b>SLIP GAJI KARYAWAN</b></h3>
+</center>
+  <table style="border: 1px solid black;width: 100%; margin-top: 10px; border-spacing: 10px;">
+    @foreach($gajikaryawan as $gajiss)
+    <tr>
+    <td><b>Tanggal:</b>{{$gajiss->tanggal}}</th>
+    </tr>
+    <tr>
+    <td><b>Nama:</b>{{$gajiss->namakaryawan}}</th>
+    </tr>
+    <tr>
+    <td><b>Jabatan:</b>{{$gajiss->jabatan}}</th>
+    </tr>
   </table>
+    <table style="border: 1px solid black;width: 100%; margin-top: 10px; border-spacing: 10px;">
+    
+    <tr>
+    <td><b>Gaji Pokok:</b> {{$gajiss->gajipokok}}</th>
+    </tr>
+    <tr>
+    <td><b>Potongan(-):</b> {{$gajiss->potongan}}</th>
+    </tr>
+    <tr>
+    <td><b>Tunjangan(+):</b>{{$gajiss->tunjangan}}</th>
+    </tr>
+    <tr>
+      <th><hr style="width: 98%"></th>
+    </tr>
+    <tr>
+    <td><b>Gaji Bersih:</b>{{$gajiss->gajiakhir}}</th>
+    </tr>
+  </table>
+  <p style="text-align: right;">Diterima Oleh: </p>
+<br>
+<br>
+<br>
+<br>
+  <p style="text-align: right;">{{$gajiss->namakaryawan}}</p>
+  @endforeach
+  <hr style="width: 100%">
+
 </body>
 </html>

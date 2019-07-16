@@ -121,8 +121,6 @@ Route::get('/dashboard/kepala/gajikaryawan/buatgaji/{idkaryawan}', 'GajiKaryawan
 Route::post('/dashboard/kepala/gajikaryawan/buatgaji/{idkaryawan}/simpangaji', 'GajiKaryawanController@store')->name('simpangaji');
 Route::get('/dashboard/kepala/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGaji')->name('lihatgaji');
 Route::get('/dashboard/kepala/gajikaryawan/cetakgaji/{id}', 'GajiKaryawanController@exportPDF')->name('cetakgaji');
-Route::get('/dashboard/pemilik/gajikaryawan/lihatgaji1/{idkaryawan}', 'GajiKaryawanController@lihatGaji1')->name('lihatgaji');
-Route::get('/dashboard/pemilik/gajikaryawan/cetakgaji1/{tanggal}', 'GajiKaryawanController@exportPDF1')->name('cetakgaji1');
 
 
 /* -----PENGATURAN AKUN----- */
@@ -153,8 +151,8 @@ Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat/pencarian','obatcontr
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan','cabangcontroller@tampilkaryawancabang')->name('karyawanpemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan/pencarian','PegawaisController@searchkaryawan')->name('pencariankaryawan');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan','cabangcontroller@tampilgajicabang')->name('tampilgajipemilik');
-Route::get('/dashboard/pemilik/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
-Route::get('/dashboard/pemilik/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDF')->name('slipgajipemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDFpemilik')->name('slipgajipemilik');
 
 /* -----STOK BARANG----- */
 

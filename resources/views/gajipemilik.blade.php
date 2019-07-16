@@ -29,7 +29,7 @@
                 <td>{{$pegawaiss->tanggallahir}}</td>
                 <td>{{$pegawaiss->role}}</td>
                 <td>
-                    <a href="/dashboard/pemilik/gajikaryawan/lihatgaji/{{ $pegawaiss->idkaryawan }}">
+                    <a href="/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/gajikaryawan/lihatgaji/{{ $pegawaiss->idkaryawan }}">
                         <input type="submit" class="btn btn-info text-white" value="Lihat Gaji"></a>&nbsp;
 
                 </td>
