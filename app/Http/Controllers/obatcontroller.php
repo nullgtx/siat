@@ -145,7 +145,7 @@ class obatcontroller extends Controller
     public function loadBarang(Request $request) {
         $cari = $request->kodebarang;
         $id_cabang = $request->id_cabang;
-        $data = DB::table('dataobat')->where('kodebarang',$cari)->where('id_cabang', $id_cabang)->get();
+        $data = DB::table('dataobat')->where('kodebarang',$cari)->where('id_cabang', $id_cabang)->first();
         return response()->json($data);
     }
 }

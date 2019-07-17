@@ -1,5 +1,7 @@
 @extends('layouts.navkasir')
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/table-to-json@0.13.0/lib/jquery.tabletojson.min.js" integrity="sha256-AqDz23QC5g2yyhRaZcEGhMMZwQnp8fC6sCZpf+e7pnw=" crossorigin="anonymous"></script>
+
 
 <div class="container">
     <h4><b>Transaksi Apotek</b></h4>
@@ -48,9 +50,9 @@
             <div class="form-group row">
                 <label for="example-text-input" class="col-5 col-form-label">Kode/Nama Barang</label>
                 <div class="col-7">
-                    <select class="form-control mr-sm-2" type="text" placeholder="Kode atau Nama Barang" aria-label="Search">
+                    <select id="kodebarang" class="form-control mr-sm-2" type="text" placeholder="Kode atau Nama Barang" aria-label="Search">
                     @foreach($dataobat as $obat)
-                    <option value ="{{ $obat->kodebarang }}"> ({{ $obat->kodebarang }}) {{ $obat->keteranganbarang }} </option>
+                    <option value ="{{ $obat->kodebarang }}"> ({{ $obat->kodebarang }}) <b> {{ $obat->keteranganbarang }} </b> ({{ $obat->jumlahbarang }})  </option>
                     @endforeach
                     </select>
                 </div>
@@ -65,16 +67,10 @@
 
             <div class="form-group row">
                 <div class="col">
-                    <button type="submit" class="btn btn-danger btn-block">Hapus</button>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary btn-block">Tambah</button>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col">
                     <button type="submit" class="btn btn-success btn-block">Bayar</button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary btn-block" onclick="ontambahclicked();">Tambah</button>
                 </div>
             </div>
 
@@ -131,65 +127,72 @@
     </div>
 
     <div class="row justify-content-center">
-        <table class="table table-striped">
-            <thead>
+        <table class="table table-striped table-hover" id="tabeltransaksi">
+            <thead class="bg-primary text-white">
                 <tr>
-                <th scope="col">Item</th>
-                <th scope="col">No</th>
-                <th scope="col">Kode Obat</th>
-                <th scope="col">Keterangan</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Satuan</th>
-                <th scope="col">Harga</th>
-                <th scope="col">Total</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Jenis Pasien</th>
+                <th scope="col">Nama Dokter</th>
+                <th scope="col">Kode Barang</th>
+                <th scope="col">Jumlah Barang</th>
+                <th scope="col">Total Biaya</th>
+                <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    </div>
-                </td>
-                <td>1</td>
-                <td>PWTBTK001</td>
-                <td>OBH</td>
-                <td>1</td>
-                <td>Botol</td>
-                <td>15000</td>
-                <td>15000</td>
-                </tr>
-                <tr>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    </div>
-                </td>
-                <td>2</td>
-                <td>PWTBTK002</td>
-                <td>Vics</td>
-                <td>1</td>
-                <td>Botol</td>
-                <td>15000</td>
-                <td>15000</td>
-                </tr>
-                <tr>
-                <td>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    </div>
-                </td>
-                <td>3</td>
-                <td>PWTBTK003</td>
-                <td>Decadryl</td>
-                <td>1</td>
-                <td>Botol</td>
-                <td>15000</td>
-                <td>15000</td>
-                </tr>
+            
             </tbody>
         </table>
     </div>
+
+    <script>
+        var stok;
+        var totalbayar = new Map();
+        function ontambahclicked()  {
+            axios.post('/dashboard/kasir/loadbarang', {
+                kodebarang: jQuery('#kodebarang').val(),
+                id_cabang: '{{$cabang->id_cabang}}'
+                })
+                .then(function (response) {
+                    stok = response.data.jumlahbarang;
+                    if (stok<jQuery('#jumlahbarang').val())
+                        Command: swal("Gagal", "Stok barang yang diminta tidak memadahi", "error");
+                    else
+                    
+                    totalbayar.set(response.data.kodebarang,response.data.hargabarang)
+
+                    $("#tabeltransaksi tbody").append(
+                        "<tr id=" + response.data.kodebarang + ">" +
+                        "<td>" + jQuery('#tanggaltransaksi').val() + "</td>" +
+                        "<td>" + jQuery('#jenispasien').val() + "</td>" +
+                        "<td>" + jQuery('#namadokter').val() + "</td>" +
+                        "<td>" + response.data.kodebarang + "</td>" +
+                        "<td>" + jQuery('#jumlahbarang').val() + "</td>" +
+                        "<td>" + response.data.hargabarang * jQuery('#jumlahbarang').val() + "</td>" +
+                        "<td><button type='button' onclick='hapusbarang(this);' class='btn btn-danger btn-sm'>Hapus</button></td>" +
+                        "</tr>"
+                    );
+                    console.log(response);
+                    var total = 0;
+                    for (var b in totalbayar){
+                        console.log(b);
+                    }
+                    $("#totalharga").val(total)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    Command: swal("Gagal", "Transaksi gagal dilakukan", "error");
+                });
+        }
+        function hapusbarang(kodebarang){
+            var rowid = $(kodebarang).parents("tr").attr('id');
+            $(kodebarang).parents("tr").remove();
+            delete totalbayar[kodebarang];
+            for (var b in totalbayar){
+                        console.log(b);
+                    }
+        }
+    </script>
 
     </form>
 </div>

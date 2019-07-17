@@ -12,7 +12,8 @@ class TransaksiController extends Controller
 {
     public function index() {
         $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
-        $dataobat = dataobats::where('id_cabang', $cabang->id_cabang)->get();
+        $dataobat = dataobats::where('id_cabang', $cabang->id_cabang)
+                             ->where('jumlahbarang', '>', 0)->get();
         return view('dashboardkasir', ['cabang' => $cabang, 'dataobat' => $dataobat]);
     }
 }
