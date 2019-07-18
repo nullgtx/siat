@@ -29,9 +29,9 @@
                 <div class="col-7">
                     <select id="jenispasien" class="form-control" required>
                         <option value="" selected disable>Jenis Pasien</option>
-                        <option value="1">UMUM</option>
-                        <option value="2">RESEP DOKTER</option>
-                        <option value="3">BPJS</option>
+                        <option value="UMUM">UMUM</option>
+                        <option value="RESEP DOKTER">RESEP DOKTER</option>
+                        <option value="BPJS">BPJS</option>
                     </select>
                 </div>
             </div>
