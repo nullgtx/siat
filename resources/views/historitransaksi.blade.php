@@ -19,58 +19,33 @@
     </div>
 
     <div class="row justify-content-center">
-        <table class="table table-striped">
-            <thead>
+    <table class="table table-striped table-hover" id="tabeltransaksi">
+            <thead class="bg-primary text-white">
                 <tr>
-                <th scope="col">No</th>
-                <th scope="col">ID Transaksi</th>
-                <th scope="col">Pelanggan</th>
-                <th scope="col">Jam</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Total Transaksi</th>
-                <th scope="col">Detail</th>
+                <th scope="col">JenisPasien</th>
+                <th scope="col">NamaDokter</th>
+                <th scope="col">KodeBarang</th>
+                <th scope="col">JumlahBarang</th>
+                <th scope="col">TotalBiaya</th>
+                <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>PWT001010419</td>
-                <td>UMUM</td>
-                <td>10:25</td>
-                <td>01-04-2019</td>
-                <td>15000</td>
-                <td>
-                    <a href="#">
-                        <input type="submit" class="btn btn-primary" value="Lihat">
-                    </a>
-                </td>
-                </tr>
+                @foreach($transaksi as $trans)
                 <tr>
-                <td>2</td>
-                <td>PWT002010419</td>
-                <td>UMUM</td>
-                <td>10:30</td>
-                <td>01-04-2019</td>
-                <td>15000</td>
-                <td>
-                    <a href="#">
-                        <input type="submit" class="btn btn-primary" value="Lihat">
-                    </a>
-                </td>
+                    <td>{{$trans->tanggal}}</td>
+                    <td>{{$trans->jenispasien}}</td>
+                    <td>{{$trans->namadokter}}</td>
+                    <td>{{$trans->kodebarang}}</td>
+                    <td>{{$trans->jumlahbarang}}</td>
+                    <td>{{$trans->totalbiaya}}</td>
+                    <td>
+                        <a href="/dashboard/kasir/historitransaksi/lihatdetail/{{ $trans->kodetransaksi }}">
+                        <input type="submit" class="btn btn-primary" value="Detail"></a>&nbsp;
+                    </td>
                 </tr>
-                <tr>
-                <td>3</td>
-                <td>PWT003010419</td>
-                <td>UMUM</td>
-                <td>10:35</td>
-                <td>01-04-2019</td>
-                <td>15000</td>
-                <td>
-                    <a href="#">
-                        <input type="submit" class="btn btn-primary" value="Lihat">
-                    </a>
-                </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

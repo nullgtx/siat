@@ -27,10 +27,6 @@ Route::get('/dashboard/kasir/stokbarang', function () {
     return view('stokbarangkasir');
 })->name('stokbarangkasir');
 
-Route::get('/dashboard/kasir/historitransaksi', function () {
-    return view('historitransaksi');
-})->name('historitransaksi');
-
 /* ------------------------------------------------------------------------------ */
 
 /* Route untuk Kepala Cabang */
@@ -140,7 +136,7 @@ Route::post('/dashboard/kasir/loadbarang','obatcontroller@loadbarang');
 Route::post('/dashboard/kasir/simpantransaksi','TransaksiController@save')->name('simpantransaksi');
 Route::get('/dashboard/kasir/stokbarang', 'obatcontroller@tampilStokBarang_Kasir')->name('stokbarangkasir');
 Route::get('/dashboard/kasir/stokbarang/pencarian','obatcontroller@searchkasir');
-
+Route::get('/dashboard/kasir/historitransaksi', 'TransaksiController@indexHistoriTransaksi')->name('historitransaksi');
 
 /* ------------------------------------------------------------------------------- */
 

@@ -20,6 +20,11 @@ class TransaksiController extends Controller
                              ->where('jumlahbarang', '>', 0)->get();
         return view('dashboardkasir', ['cabang' => $cabang, 'dataobat' => $dataobat]);
     }
+    public function indexHistoriTransaksi() {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
+        return view('historitransaksi', ['cabang' => $cabang, 'transaksi' => $transaksi]);
+    }
     public function save(Request $request){
         $waktu = Carbon::now();
         $cabang = $request->cabang;
