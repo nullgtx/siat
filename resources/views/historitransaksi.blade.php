@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Histori Transaksi</b></h4>
-    <h5>Apotek XXX</h5>
+    <h4><b>History Transaksi</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek {{$cabang->nama_cabang}}</b></button>
     <form>
     <div class="form-group row">
         <label for="example-date-input" class="col-2 col-form-label">Tanggal Transaksi</label>

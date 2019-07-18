@@ -4,8 +4,8 @@
 
 
 <div class="container">
-    <h4><b>Transaksi Apotek</b></h4>
-    <h5>Apotek {{Auth::user()->id_cabang}}</h5>
+    <h4><b>Transaksi Barang</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek {{$cabang->nama_cabang}}</b></button>
     <form method="post" action="javascript:void(0)">
     <div class="row">
         <div class="col">

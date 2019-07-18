@@ -2,7 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Stok Barang Apotek {{Auth::user()->id_cabang}}</b></h4>
+    <h4><b>Stok Barang</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Barang</h5>
