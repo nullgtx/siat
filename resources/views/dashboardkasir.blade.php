@@ -6,7 +6,7 @@
 <div class="container">
     <h4><b>Transaksi Apotek</b></h4>
     <h5>Apotek {{Auth::user()->id_cabang}}</h5>
-    <form>
+    <form method="post" action="javascript:void(0)">
     <div class="row">
         <div class="col">
 
@@ -67,7 +67,7 @@
 
             <div class="form-group row">
                 <div class="col">
-                    <button type="submit" class="btn btn-success btn-block">Bayar</button>
+                    <button type="submit" class="btn btn-success btn-block" onclick="onSubmitClicked();">Bayar</button>
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-primary btn-block" onclick="ontambahclicked();">Tambah</button>
@@ -85,7 +85,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                            <input type="number" class="form-control" id="totalharga" disabled>
+                            <input type="number" class="form-control" id="totalharga" value="0" disabled>
                         <div class="input-group-append">
                             <span class="input-group-text">,00</span>
                         </div>
@@ -100,7 +100,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Rp.</span>
                         </div>
-                            <input type="number" class="form-control" id="bayar" required>
+                            <input type="number" class="form-control" id="bayar" onkeyup="hitung();" required>
                         <div class="input-group-append">
                             <span class="input-group-text">,00</span>
                         </div>
@@ -131,11 +131,11 @@
             <thead class="bg-primary text-white">
                 <tr>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Jenis Pasien</th>
-                <th scope="col">Nama Dokter</th>
-                <th scope="col">Kode Barang</th>
-                <th scope="col">Jumlah Barang</th>
-                <th scope="col">Total Biaya</th>
+                <th scope="col">JenisPasien</th>
+                <th scope="col">NamaDokter</th>
+                <th scope="col">KodeBarang</th>
+                <th scope="col">JumlahBarang</th>
+                <th scope="col">TotalBiaya</th>
                 <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -147,7 +147,7 @@
 
     <script>
         var stok;
-        var totalbayar = new Map();
+        
         function ontambahclicked()  {
             axios.post('/dashboard/kasir/loadbarang', {
                 kodebarang: jQuery('#kodebarang').val(),
@@ -158,8 +158,10 @@
                     if (stok<jQuery('#jumlahbarang').val())
                         Command: swal("Gagal", "Stok barang yang diminta tidak memadahi", "error");
                     else
-                    
-                    totalbayar.set(response.data.kodebarang,response.data.hargabarang)
+
+                    var price = response.data.hargabarang * parseInt(jQuery('#jumlahbarang').val());
+                    var ttl = parseInt($("#totalharga").val()) + price;
+                    $("#totalharga").val(ttl);
 
                     $("#tabeltransaksi tbody").append(
                         "<tr id=" + response.data.kodebarang + ">" +
@@ -168,29 +170,49 @@
                         "<td>" + jQuery('#namadokter').val() + "</td>" +
                         "<td>" + response.data.kodebarang + "</td>" +
                         "<td>" + jQuery('#jumlahbarang').val() + "</td>" +
-                        "<td>" + response.data.hargabarang * jQuery('#jumlahbarang').val() + "</td>" +
-                        "<td><button type='button' onclick='hapusbarang(this);' class='btn btn-danger btn-sm'>Hapus</button></td>" +
+                        "<td id = 'totalhargabayar'>" + response.data.hargabarang * jQuery('#jumlahbarang').val() + "</td>" +
+                        "<td><button type='button' onclick='hapusbarang(this, " + price + ");' id='btnHapus' class='btn btn-danger btn-sm'>Hapus</button></td>" +
                         "</tr>"
                     );
-                    console.log(response);
-                    var total = 0;
-                    for (var b in totalbayar){
-                        console.log(b);
-                    }
-                    $("#totalharga").val(total)
                 })
                 .catch(function (error) {
                     console.log(error);
                     Command: swal("Gagal", "Transaksi gagal dilakukan", "error");
                 });
         }
-        function hapusbarang(kodebarang){
-            var rowid = $(kodebarang).parents("tr").attr('id');
+        function hapusbarang(kodebarang, price){
             $(kodebarang).parents("tr").remove();
-            delete totalbayar[kodebarang];
-            for (var b in totalbayar){
-                        console.log(b);
-                    }
+            var ttl = parseInt($("#totalharga").val()) - price;
+            $("#totalharga").val(ttl);
+        }
+        function hitung(){
+            var totalharga = $("#totalharga").val();
+            var bayar = $("#bayar").val();
+            var kembalian = bayar - totalharga;
+            $("#kembalian").val(kembalian);
+        }
+        function onSubmitClicked(){
+            var transaksi = $('#tabeltransaksi').tableToJSON({
+                ignoreColumns: [6]
+            });
+            var trans = JSON.stringify(transaksi);
+            console.log(trans);
+            $("#send_form").html('Menyimpan'); 
+            axios.post('/dashboard/kasir/simpantransaksi', {
+            id_cabang : '{{$cabang->id_cabang}}',
+            namakasir : '{{Auth::user()->name}}',
+            tabeltransaksi : trans
+            })
+            .then(function (response) {
+                Command: swal("Sukses", "Transaksi berhasil dilakukan", "success");
+                console.log(response);
+                $("#send_form").html('Bayar');
+            })
+            .catch(function (error) {
+                Command: swal("Gagal", "Transaksi gagal dilakukan", "error");
+                console.log(error);
+                $("#send_form").html('Bayar');
+            });
         }
     </script>
 

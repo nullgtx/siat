@@ -137,6 +137,7 @@ Route::get('/dashboard/kepala/pengaturanakun', 'UserController@index')->name('pe
 
 Route::get('/dashboard/kasir','TransaksiController@index')->name('dashboardkasir');
 Route::post('/dashboard/kasir/loadbarang','obatcontroller@loadbarang');
+Route::post('/dashboard/kasir/simpantransaksi','TransaksiController@save')->name('simpantransaksi');
 Route::get('/dashboard/kasir/stokbarang', 'obatcontroller@tampilStokBarang_Kasir')->name('stokbarangkasir');
 Route::get('/dashboard/kasir/stokbarang/pencarian','obatcontroller@searchkasir');
 
