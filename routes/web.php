@@ -47,10 +47,6 @@ Route::get('/dashboard/kepala/editgaji', function () {
     return view('editgaji');
 })->name('editgaji');
 
-Route::get('/dashboard/kepala/laporanbarang', function () {
-    return view('kepalalaporanbarang');
-})->name('kepalalaporanbarang');
-
 Route::get('/dashboard/kepala/pengaturanakun', function () {
     return view('pengaturanakun');
 })->name('pengaturanakun');
@@ -97,6 +93,11 @@ Route::get('/dashboard/kepala/stokbarang/deletebarang/{id}', 'obatcontroller@del
 Route::get('/dashboard/kepala/stokbarang/editbarang/{id}', 'obatcontroller@editBarang')->name('editbarang');
 Route::post('/dashboard/kepala/stokbarang/editbarang/updatebarang', 'obatcontroller@updateBarang')->name('updatebarang');
 Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
+
+
+/* -----BARANG MASUK KELUAR----- */
+
+Route::get('/dashboard/kepala/laporanbarang', 'BarangMasukController@index')->name('kepalalaporanbarang');
 
 
 /* -----DATA KARYAWAN----- */

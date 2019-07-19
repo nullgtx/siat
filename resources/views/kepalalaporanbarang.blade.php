@@ -38,49 +38,35 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col">No</th>
+                <th scope="col">ID Obat</th>
                 <th scope="col">Kode Obat</th>
+                <th scope="col">Nama Obat</th>
                 <th scope="col">Jenis Obat</th>
-                <th scope="col">Keterangan</th>
-                <th scope="col">Satuan</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Expired Date</th>
-                <th scope="col">Supplier</th>
+                <th scope="col">Stok Obat</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th scope="col">Tanggal Kadaluarsa</th>
+                <th scope="col">Satuan Obat</th>
+                <th scope="col">Harga Obat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>          
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-                <td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                </tr>
+            @foreach($barangmasuk as $brgmsk)
+            <tr>    
+                <td>{{$brgmsk->id}}</td>
+                <td>{{$brgmsk->kodebarang}}</td>
+                <td>{{$brgmsk->keteranganbarang}}</td>
+                <td>{{$brgmsk->jenisbarang}}</td>
+                <td>{{$brgmsk->jumlahbarang}}</td>
+                <td>{{$brgmsk->tanggalmasuk}}</td>
+                <td>{{$brgmsk->tanggalexpired}}</td>
+                <td>{{$brgmsk->satuanbarang}}</td>
+                <td>{{$brgmsk->hargabarang}}</td>
+            </tr>
+            @endforeach
+            </tbody>
+            @if(!empty($errorMsg))
+                <div class="alert alert-danger"> {{ $errorMsg }}</div>
+            @endif
             </tbody>
         </table>
     </div>
@@ -89,52 +75,38 @@
     <h5>Tabel Barang Keluar</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
-        <table class="table table-striped">
+    <table class="table table-striped">
             <thead>
                 <tr>
-                <th scope="col">No</th>
+                <th scope="col">ID Obat</th>
                 <th scope="col">Kode Obat</th>
+                <th scope="col">Nama Obat</th>
                 <th scope="col">Jenis Obat</th>
-                <th scope="col">Keterangan</th>
-                <th scope="col">Satuan</th>
-                <th scope="col">Jumlah</th>
-                <th scope="col">Expired Date</th>
-                <th scope="col">Supplier</th>
+                <th scope="col">Stok Obat</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th scope="col">Tanggal Kadaluarsa</th>
+                <th scope="col">Satuan Obat</th>
+                <th scope="col">Harga Obat</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>          
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-    
-                <td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                </tr>
+            @foreach($barangkeluar as $brgklr)
+            <tr>    
+                <td>{{$brgklr->id}}</td>
+                <td>{{$brgklr->kodebarang}}</td>
+                <td>{{$brgklr->keteranganbarang}}</td>
+                <td>{{$brgklr->jenisbarang}}</td>
+                <td>{{$brgklr->jumlahbarang}}</td>
+                <td>{{$brgklr->tanggalmasuk}}</td>
+                <td>{{$brgklr->tanggalexpired}}</td>
+                <td>{{$brgklr->satuanbarang}}</td>
+                <td>{{$brgklr->hargabarang}}</td>
+            </tr>
+            @endforeach
+            </tbody>
+            @if(!empty($errorMsg))
+                <div class="alert alert-danger"> {{ $errorMsg }}</div>
+            @endif
             </tbody>
         </table>
     </div>
