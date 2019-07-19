@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\dataobats;
 use App\cabang;
+use App\BarangMasuk;
 use Response;
 
 class obatcontroller extends Controller
@@ -41,6 +42,19 @@ class obatcontroller extends Controller
         $obat->tanggalmasuk = $request->tanggalmasuk;
         $obat->tanggalexpired = $request->tanggalexpired;
         $obat->save();
+
+        $barang = new BarangMasuk;
+        $barang->id_cabang = $request->id_cabang;
+        $barang->kodebarang = $request->kodebarang;
+        $barang->jenisbarang = $request->jenisbarang;
+        $barang->keteranganbarang = $request->keteranganbarang;
+        $barang->satuanbarang = $request->satuanbarang;
+        $barang->hargabarang = $request->hargabarang;
+        $barang->jumlahbarang = $request->jumlahbarang;
+        $barang->tanggalmasuk = $request->tanggalmasuk;
+        $barang->tanggalexpired = $request->tanggalexpired;
+        $barang->save();
+
         return Response::json([
             'action' => 'save_dataobat'
                 ], 201); // Status code here
@@ -54,7 +68,7 @@ class obatcontroller extends Controller
 	return view('editbarang',['dataobat' => $dataobat]);
     }
     public function updateBarang(Request $request){
-      DB::table('dataobat')->where('id',$request->id)->update([
+        DB::table('dataobat')->where('id',$request->id)->update([
             'kodebarang' => $request->kodebarang,
             'jenisbarang' => $request->jenisbarang,
             'keteranganbarang' => $request->keteranganbarang,
@@ -64,7 +78,7 @@ class obatcontroller extends Controller
             'tanggalmasuk' => $request->tanggalmasuk,
             'tanggalexpired' => $request->tanggalexpired
         ]); 
-   
+
         return redirect('/dashboard/kepala/stokbarang')
         ->with('success','Product updated successfully');
     }

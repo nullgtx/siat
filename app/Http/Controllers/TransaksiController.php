@@ -11,6 +11,7 @@ use DB;
 use Carbon\Carbon;
 use App\Transaksi;
 use App\dataobats;
+use App\BarangKeluar;
 
 class TransaksiController extends Controller
 {
@@ -34,6 +35,7 @@ class TransaksiController extends Controller
         $namakasir = $request->namakasir;
         $trans = $request->tabeltransaksi;
         $objectbarang = json_decode($trans);
+        
         foreach($objectbarang as $key => $value) {
             $transaksi = new Transaksi;
             $transaksi->kodetransaksi = $hash;
@@ -46,8 +48,25 @@ class TransaksiController extends Controller
             $transaksi->jumlahbarang = $value->JumlahBarang;
             $transaksi->totalbiaya = $value->TotalBiaya;
             $transaksi->save();
-              DB::table("dataobat")->where('kodebarang',$value->KodeBarang)
+            DB::table("dataobat")->where('kodebarang',$value->KodeBarang)
                       ->decrement("jumlahbarang",$value->JumlahBarang);
+
+            // Variabel untuk mengisi tabel Barang Keluar (BK)
+
+            $brg = dataobats::where('kodebarang', $value->KodeBarang)->first();
+
+            $barangkeluar = new BarangKeluar;
+            $barangkeluar->id_cabang = $request->id_cabang;
+            $barangkeluar->kodebarang = $value->KodeBarang;
+            $barangkeluar->jenisbarang = $brg->jenisbarang;
+            $barangkeluar->keteranganbarang = $brg->keteranganbarang;
+            $barangkeluar->satuanbarang = $brg->satuanbarang;
+            $barangkeluar->hargabarang = $brg->hargabarang;
+            $barangkeluar->jumlahbarang = $value->JumlahBarang;
+            $barangkeluar->tanggalmasuk = $brg->tanggalmasuk;
+            $barangkeluar->tanggalexpired = $brg->tanggalexpired;
+            $barangkeluar->save();
+
             }
              return response()->json([
                       'status' => 'success',
