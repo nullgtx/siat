@@ -120,8 +120,17 @@
     </div>
  <div class="row float-right">
      <div class="col-xs-12">
-            <a href="#"><input type="submit" class="btn btn-outline-success" value="Buat Laporan"></a>
-        </div>
+      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Gaji"></a>
+            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
+        --></div>
+        <script>
+          function onclicked(){
+          
+            var awal = $("#tanggalAwal").val();
+             var akhir = $("#tanggalAkhir").val();
+            window.location.replace("/dashboard/kepala/laporanbarang/cetaklaporan/" + awal + "/" + akhir);
+          }
+        </script>
   </div>
 </div>
 @endsection

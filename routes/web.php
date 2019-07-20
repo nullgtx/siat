@@ -99,7 +99,7 @@ Route::get('/dashboard/kepala/stokbarang/pencarian','obatcontroller@search');
 
 Route::get('/dashboard/kepala/laporanbarang', 'BarangMasukController@index')->name('kepalalaporanbarang');
 Route::get('/dashboard/kepala/laporanbarang/{awal}/{akhir}','BarangMasukController@tampil')->name('tampillaporankepala');
-
+Route::get('/dashboard/kepala/laporanbarang/cetaklaporan/{awal}/{akhir}', 'BarangMasukController@exportPDF')->name('cetaklaporanbr');
 
 /* -----DATA KARYAWAN----- */
 

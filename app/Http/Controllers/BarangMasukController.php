@@ -8,6 +8,7 @@ use App\cabang;
 use Auth;
 use App\BarangMasuk;
 use App\BarangKeluar;
+use PDF;
 
 class BarangMasukController extends Controller
 {
@@ -24,4 +25,15 @@ class BarangMasukController extends Controller
         $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
             return view('kepalalaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
     }
+    public function exportPDF($awal,$akhir)
+    {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $barangmasuk = BarangMasuk::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+        $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+       // $gajikaryawan = DB::table('gajikaryawan')->where('id',$id)->get();
+        $pdf = PDF::loadView('cetaklaporanbr', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
+        return $pdf->download('Laporan-Barang-Masuk-Keluar'.date('Y-m-d_H-i-s').'.pdf');
+    }
+
+
 }
