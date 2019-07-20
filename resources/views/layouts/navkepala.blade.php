@@ -44,14 +44,15 @@
                             <a class="nav-link" href="{{ route('kepalalaporanbarang') }}">Barang Masuk Keluar<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('PenjualanKepalaCabang') }}">Penjualan<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('datakaryawankepala') }}">Data Karyawan<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('gajikaryawankepala') }}">Gaji Karyawan<span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('pengaturanakun') }}">Pengaturan Akun<span class="sr-only">(current)</span></a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout<span class="sr-only">(current)</span></a>

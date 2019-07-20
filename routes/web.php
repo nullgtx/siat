@@ -83,6 +83,7 @@ Route::post('/dashboard/kepala/absensikaryawan/simpanabsen', 'AbsensiController@
 
 Route::get('/dashboard/kepala', 'cabangcontroller@indexKepala')->name('dashboardkepala');
 
+Route::get('/dashboard/kepala/penjualan', 'TransaksiController@indexPenjualanKepala')->name('PenjualanKepalaCabang');
 
 /* -----STOK BARANG------ */
 

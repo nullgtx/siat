@@ -26,6 +26,11 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
         return view('historitransaksi', ['cabang' => $cabang, 'transaksi' => $transaksi]);
     }
+    public function indexPenjualanKepala() {
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
+        return view('PenjualanKepalaCabang', ['cabang' => $cabang, 'transaksi' => $transaksi]);
+    }
     public function save(Request $request){
         $waktu = Carbon::now();
         $cabang = $request->cabang;
