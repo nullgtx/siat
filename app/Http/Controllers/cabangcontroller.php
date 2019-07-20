@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\dataobats;
 use App\Pegawais;
 use App\cabang;
+use App\Transaksi;
+use App\BarangMasuk;
+use App\BarangKeluar;
 use Auth;
 use Response;
 
@@ -39,5 +42,16 @@ class cabangcontroller extends Controller
         $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
         $datapegawai = Pegawais::where('id_cabang', $cabang->id_cabang)->get();
         return view('gajipemilik', ['cabang' => $cabang, 'datapegawai' => $datapegawai]);
+    }
+    public function tampilpenjualancabang($id_cabang) {
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
+        return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi]);
+    }   
+    public function tampilbarangmasukkeluar($id_cabang) {
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $barangmasuk = BarangMasuk::where('id_cabang', $cabang->id_cabang)->get();
+        $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->get();
+        return view('pemiliklaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
     }
 }

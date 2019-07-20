@@ -48,8 +48,8 @@
                             Laporan
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Laporan Penjualan</a>
-                                <a class="dropdown-item" href="#">Laporan Barang Masuk Keluar</a>
+                                <a class="dropdown-item" href="{{route('LaporanPenjualanPemilik', ['id_cabang' => $cabang->id_cabang]) }}">Laporan Penjualan</a>
+                                <a class="dropdown-item" href="{{route('LaporanBarangPemilik', ['id_cabang' => $cabang->id_cabang]) }}">Laporan Barang Masuk Keluar</a>
                                 <a class="dropdown-item" href="{{route('tampilgajipemilik', ['id_cabang' => $cabang->id_cabang]) }}">Laporan Gaji Karyawan</a>
                             </div>
                         </li>

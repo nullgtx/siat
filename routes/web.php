@@ -82,7 +82,6 @@ Route::post('/dashboard/kepala/absensikaryawan/simpanabsen', 'AbsensiController@
 /* -------DASHBOARD------ */
 
 Route::get('/dashboard/kepala', 'cabangcontroller@indexKepala')->name('dashboardkepala');
-
 Route::get('/dashboard/kepala/penjualan', 'TransaksiController@indexPenjualanKepala')->name('PenjualanKepalaCabang');
 
 /* -----STOK BARANG------ */
@@ -152,7 +151,8 @@ Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan/pencarian','Pegaw
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan','cabangcontroller@tampilgajicabang')->name('tampilgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDFpemilik')->name('slipgajipemilik');
-
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan','cabangcontroller@tampilpenjualancabang')->name('LaporanPenjualanPemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar','cabangcontroller@tampilbarangmasukkeluar')->name('LaporanBarangPemilik');
 /* -----STOK BARANG----- */
 
 
