@@ -6,7 +6,7 @@
     <div class="row pt-3">
         <div class="col-sm">
             <h5>Filter Barang Masuk dan Keluar</h5>
-		<form>
+        <form>
         <div class="form-group row">
             <div class="col-md-2">
               <select id="jeniskelamin" class="form-control" required>
@@ -19,19 +19,27 @@
           </div>
           <div class="form-group row">
             <div class="col-md-2">
-              <input class="form-control" type="date" id="tanggallahir" required>
+              <input class="form-control" type="date" id="tanggalAwal" name="awal" required>
             </div>
             <div class="col-md-2">
-              <input class="form-control" type="month" id="tanggallahir" required>
+              <input class="form-control" type="date" id="tanggalAkhir" name="akhir" required>
             </div>
           </div>
         </form>
-
+        <div class="col-xs-12">
+        <button type="submit" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
         </div>
-        
+        </div>
+        <script>
+             function ontambahclicked()  {
+              var awal = $("#tanggalAwal").val();
+             var akhir = $("#tanggalAkhir").val();
+             window.location.replace("/dashboard/kepala/laporanbarang/" + awal + "/" + akhir);
+     };
+        </script>
     </div>
 
-    	
+        
     <h5>Tabel Barang Masuk</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
@@ -71,7 +79,7 @@
         </table>
     </div>
 
-    	
+        
     <h5>Tabel Barang Keluar</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
@@ -111,7 +119,7 @@
         </table>
     </div>
  <div class="row float-right">
- 	 <div class="col-xs-12">
+     <div class="col-xs-12">
             <a href="#"><input type="submit" class="btn btn-outline-success" value="Buat Laporan"></a>
         </div>
   </div>
