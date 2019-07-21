@@ -34,7 +34,7 @@
   width: 90%;">
   <center>
   <h3><b>Laporan Barang Masuk Keluar</b></h3>
-  <h3 style="font-size: 85%;"><b>Tanggal : {$awal} s/d {$akhir} </b></h3>
+  <h3 style="font-size: 85%;"><b>Tanggal : {{$awal}} s/d {{$akhir}} </b></h3>
 </center>
 
 <h3 style="text-align: left;">Barang Masuk</h3>

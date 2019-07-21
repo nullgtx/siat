@@ -107,7 +107,7 @@ class obatcontroller extends Controller
         ->wherein('id_cabang', [$cabang->id_cabang])
         ->paginate(10);
         if(count($dataobat)>0 && $cari !='')
-            return view('stokbarangkepala',['dataobat'=>$dataobat]);
+            return view('stokbarangkepala',['dataobat'=>$dataobat,'cabang' => $cabang]);
             else return view('stokbarangkepala',['dataobat'=>$dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
     public function searchkasir(Request $request)
@@ -130,7 +130,7 @@ class obatcontroller extends Controller
         ->wherein('id_cabang', [$cabang->id_cabang])
         ->paginate(10);
         if(count($dataobat)>0 && $cari !='')
-            return view('stokbarangkasir',['dataobat'=>$dataobat]);
+            return view('stokbarangkasir',['dataobat'=>$dataobat,'cabang' => $cabang]);
             else return view('stokbarangkasir',['dataobat'=>$dataobat])->with('errorMsg','Masukkan kata kunci atau barang tidak ditemukan');
     }
 
