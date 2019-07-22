@@ -2,20 +2,71 @@
 @section('content')
 
 <div class="container">
-    <h4><b>Penjualan</b></h4>
-    <button type="button" class="btn btn-outline-success"><b>Apotek {{$cabang->nama_cabang}}</b></button>
-    <form>
-    <div class="form-group row">
-        <label for="example-date-input" class="col-2 col-form-label">Tanggal Transaksi</label>
-        <div class="col-2">
-            <input class="form-control" type="date" id="tanggaltransaksi" required>
-        </div>
-    </div>
+    <h4><b>Laporan Transaksi Penjualan</b></h4>
+    <div class="row pt-3">
+        <div class="col-sm">
+            <h5>Filter Transaksi Penjualan</h5>
+        <form>
 
-    <div class="form-group row">
-        <div class="col-2">
-            <button type="submit" class="btn btn-success btn-block">Lihat</button>
+          <div class="form-group row">
+            <div class="col-md-2">
+            <span>Tanggal Awal</span>
+            @if(isset($awal))
+              <input class="form-control" type="text" id="awal" name="awal" value="{{$awal}}" placeholder="yyyy-mm-dd" required>
+            @else
+            <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
+            
+            @endif  
+            </div>
+            <div class="col-md-2">
+            <span>Tanggal Akhir</span>
+            @if(isset($akhir))
+              <input class="form-control" type="text" id="akhir" name="akhir" value="{{$akhir}}"  placeholder="yyyy-mm-dd" required>
+              @else
+            <input class="form-control" type="text" id="akhir" name="akhir"  placeholder="yyyy-mm-dd" required>
+            @endif  
+            </div>
+          </div>
+        </form>
+        <script>
+              $(document).ready(function () {
+                $('#awal').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+                $('#akhir').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+            });
+        </script>
+        <div class="col-xs-12">
+        <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+       
         </div>
+        </div>
+        <div class="row float-right">
+     <div class="col-xs-12">
+      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Barang"></a>
+            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
+        --></div>
+        <script>
+          function onclicked(){
+          
+            var awal = $("#awal").val();
+             var akhir = $("#akhir").val();
+             window.location.replace("/dashboard/kepala/penjualan/cetaklaporan/" + awal + "/" + akhir);
+          }
+        </script>
+  </div>
+        <script>
+             function ontambahclicked()  {
+              var awal = $("#awal").val();
+             var akhir = $("#akhir").val();
+             window.location.replace("/dashboard/kepala/penjualan/" + awal + "/" + akhir);
+           
+     };
+        </script>
     </div>
 
     <div class="row justify-content-center">

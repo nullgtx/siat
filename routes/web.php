@@ -83,6 +83,8 @@ Route::post('/dashboard/kepala/absensikaryawan/simpanabsen', 'AbsensiController@
 
 Route::get('/dashboard/kepala', 'cabangcontroller@indexKepala')->name('dashboardkepala');
 Route::get('/dashboard/kepala/penjualan', 'TransaksiController@indexPenjualanKepala')->name('PenjualanKepalaCabang');
+Route::get('/dashboard/kepala/penjualan/{awal}/{akhir}','TransaksiController@tampilkepala')->name('tampillaporanpenjualankepala');
+Route::get('/dashboard/kepala/penjualan/cetaklaporan/{awal}/{akhir}','TransaksiController@exportPDFkepala')->name('cetaakLaporanPenjualankepala');
 
 /* -----STOK BARANG------ */
 
@@ -150,10 +152,15 @@ Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat','cabangcontroller@ta
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/stokobat/pencarian','obatcontroller@searchobatpemilik')->name('pencarianobatpemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan','cabangcontroller@tampilkaryawancabang')->name('karyawanpemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/datakaryawan/pencarian','PegawaisController@searchkaryawan')->name('pencariankaryawan');
+
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan','cabangcontroller@tampilgajicabang')->name('tampilgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDFpemilik')->name('slipgajipemilik');
-Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan','cabangcontroller@tampilpenjualancabang')->name('LaporanPenjualanPemilik');
+
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan','TransaksiController@tampilpenjualancabang')->name('LaporanPenjualanPemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan/{awal}/{akhir}','TransaksiController@tampilpemilik')->name('tampillaporanpenjualanpemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan/cetaklaporan/{awal}/{akhir}','TransaksiController@exportPDFpemilik')->name('cetaakLaporanPenjualanPemilik');
+
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar','BarangMasukController@tampilbarangmasukkeluar')->name('LaporanBarangPemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar/{awal}/{akhir}','BarangMasukController@tampilpemilik')->name('tampillaporanpemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar/cetaklaporan/{awal}/{akhir}', 'BarangMasukController@exportPDFpemilik')->name('cetaklaporanbr');

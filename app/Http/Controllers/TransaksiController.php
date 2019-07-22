@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use App\Transaksi;
 use App\dataobats;
 use App\BarangKeluar;
+use PDF;
 
 class TransaksiController extends Controller
 {
@@ -83,4 +84,45 @@ class TransaksiController extends Controller
                       'code' => 'storeTransaction'
           ]);
     }
+
+    public function tampilpenjualancabang($id_cabang) {
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
+        return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi]);
+    }  
+
+    function tampilkepala($awal,$akhir){
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggal BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+            return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi,'awal'=> $awal,'akhir'=>$akhir]);
+    }
+    public function exportPDFkepala($awal,$akhir, Request $request)
+    {
+        $awal = $request->awal;
+        $akhir = $request->akhir;
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggal BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+        $pdf = PDF::loadView('cetaklaporanpenjualan', ['cabang' => $cabang, 'transaksi' => $transaksi, 'awal' => $awal,'akhir' => $akhir]);
+        return $pdf->download('Laporan-Barang-Masuk-Keluar'.date('Y-m-d_H-i-s').'.pdf');
+    }
+
+    function tampilpemilik($id_cabang,$awal,$akhir){
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggal BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+            return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi,'awal'=> $awal,'akhir'=>$akhir]);
+    }
+    public function exportPDFpemilik($id_cabang,$awal,$akhir, Request $request)
+    {
+        $awal = $request->awal;
+        $akhir = $request->akhir;
+        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggal BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
+        $pdf = PDF::loadView('cetaklaporanpenjualan', ['cabang' => $cabang, 'transaksi' => $transaksi, 'awal' => $awal,'akhir' => $akhir]);
+        return $pdf->download('Laporan-Transaksi'.date('Y-m-d_H-i-s').'.pdf');
+    }
+
+   
+
 }
