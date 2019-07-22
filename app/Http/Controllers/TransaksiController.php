@@ -32,6 +32,12 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
         return view('PenjualanKepalaCabang', ['cabang' => $cabang, 'transaksi' => $transaksi]);
     }
+
+    function tampilkasir($awal){
+        $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();   
+        $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->where("tanggal" , $awal)->get();
+            return view('historitransaksi', ['cabang' => $cabang, 'transaksi' => $transaksi,'awal'=> $awal]);
+    }
     //public function indexPenjualanPemilik() {
     //    $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
     //    $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
@@ -88,14 +94,14 @@ class TransaksiController extends Controller
     public function tampilpenjualancabang($id_cabang) {
         $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
         $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
-        return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi]);
+        return view('PenjualanPemilik', ['cabang' => $cabang, 'transaksi' => $transaksi]);
     }  
 
     function tampilkepala($awal,$akhir){
         $cabang = cabang::where('id_cabang', Auth::user()->id_cabang)->first();
         
         $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggal BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
-            return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi,'awal'=> $awal,'akhir'=>$akhir]);
+            return view('penjualankepalacabang', ['cabang' => $cabang, 'transaksi' => $transaksi,'awal'=> $awal,'akhir'=>$akhir]);
     }
     public function exportPDFkepala($awal,$akhir, Request $request)
     {

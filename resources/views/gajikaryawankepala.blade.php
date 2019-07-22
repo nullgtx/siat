@@ -2,21 +2,12 @@
 @section('content')
 
 <div class="container">
-    <h4>Gaji Karyawan</h4>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
+    <h4><b>Gaji Karyawan</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
-        <div class="col-sm-2 pt-1">
-            <h5>Cari Karyawan</h5>
-        </div>
-        <div class="col-sm-5">
-            <form class="form-inline md-form mr-auto mb-4">
-                <input class="form-control mr-sm-2" type="text" placeholder="ID atau Nama Karyawan" aria-label="Search">
-                <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
-            </form>
-        </div>
     </div>
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">ID</th>

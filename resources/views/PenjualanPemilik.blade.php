@@ -40,16 +40,12 @@
                 });
             });
         </script>
-        <div class="col-xs-12">
-        <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
-       
+        <div class="col-xs-12 mb-2">
+          <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+          <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Laporan Penjualan"></a>
         </div>
         </div>
         <div class="row float-right">
-     <div class="col-xs-12">
-      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Barang"></a>
-            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
-        --></div>
         <script>
           function onclicked(){
           
@@ -58,7 +54,7 @@
              window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/penjualan/cetaklaporan/" + awal + "/" + akhir);
           }
         </script>
-  </div>
+    </div>
         <script>
              function ontambahclicked()  {
               var awal = $("#awal").val();
@@ -73,7 +69,7 @@
 
     <div class="row justify-content-center">
     <table class="table table-striped table-hover" id="tabeltransaksi">
-            <thead class="bg-primary text-white">
+            <thead>
                 <tr>
                 <th scope="col">Tanggal</th>
                 <th scope="col">JenisPasien</th>

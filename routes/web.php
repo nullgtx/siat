@@ -142,6 +142,8 @@ Route::post('/dashboard/kasir/simpantransaksi','TransaksiController@save')->name
 Route::get('/dashboard/kasir/stokbarang', 'obatcontroller@tampilStokBarang_Kasir')->name('stokbarangkasir');
 Route::get('/dashboard/kasir/stokbarang/pencarian','obatcontroller@searchkasir');
 Route::get('/dashboard/kasir/historitransaksi', 'TransaksiController@indexHistoriTransaksi')->name('historitransaksi');
+Route::get('/dashboard/kasir/historitransaksi/{awal}', 'TransaksiController@tampilkasir')->name('historitransaksicari');
+
 
 /* ------------------------------------------------------------------------------- */
 

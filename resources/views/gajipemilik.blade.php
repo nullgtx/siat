@@ -2,10 +2,11 @@
 @section('content')
 
 <div class="container">
-    <h4>Gaji Karyawan</h4>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
+    <h4><b>Gaji Karyawan</b></h4>
+    <button type="button" class="btn btn-outline-success mb-2"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
+    <h5><b>{{$cabang->alamat_cabang}}</b></h5>
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">ID</th>

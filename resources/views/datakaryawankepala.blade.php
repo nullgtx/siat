@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4>Data Karyawan Apotek</h4>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
+    <h4><b>Data Karyawan Apotek</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Karyawan</h5>
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">ID</th>

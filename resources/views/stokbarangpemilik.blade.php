@@ -1,9 +1,9 @@
 @extends('layouts.navpemilik')
 @section('content')
 <div class="container">
-    <h4>Stok Barang Apotek  </h4>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
-    <h4>{{$cabang->alamat_cabang}}</h4>
+    <h4><b>Stok Barang Apotek</b></h4>
+    <button type="button" class="btn btn-outline-success mb-2"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
+    <h5><b>{{$cabang->alamat_cabang}}</b></h5>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Barang</h5>
@@ -18,7 +18,7 @@
     </div>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <tr>

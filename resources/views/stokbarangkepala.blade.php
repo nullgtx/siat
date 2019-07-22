@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-    <h4>Stok Barang Apotek</h4>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
+    <h4><b>Stok Barang Apotek</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
         <div class="col-sm-2 pt-1">
             <h5>Cari Barang</h5>
@@ -21,7 +21,7 @@
     </div>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <tr>

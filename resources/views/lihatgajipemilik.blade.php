@@ -28,7 +28,7 @@
 
 <div class="row justify-content-center">
 
-  <table class="table table-striped">
+  <table class="table table-striped table-hover">
     <thead>
                 <tr>
                 <th scope="col">ID karyawan</th>

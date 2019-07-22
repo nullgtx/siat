@@ -3,6 +3,7 @@
 
 <div class="container">
     <h4><b>Laporan Transaksi Penjualan</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
         <div class="col-sm">
             <h5>Filter Transaksi Penjualan</h5>
@@ -40,16 +41,12 @@
                 });
             });
         </script>
-        <div class="col-xs-12">
-        <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
-       
+        <div class="col-xs-12 mb-2">
+          <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+          <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Laporan Penjualan"></a>
         </div>
         </div>
         <div class="row float-right">
-     <div class="col-xs-12">
-      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Barang"></a>
-            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
-        --></div>
         <script>
           function onclicked(){
           
@@ -70,8 +67,8 @@
     </div>
 
     <div class="row justify-content-center">
-    <table class="table table-striped table-hover" id="tabeltransaksi">
-            <thead class="bg-primary text-white">
+    <table class="table table-striped table-hover table-hover" id="tabeltransaksi">
+            <thead>
                 <tr>
                 <th scope="col">Tanggal</th>
                 <th scope="col">JenisPasien</th>

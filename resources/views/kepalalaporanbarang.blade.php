@@ -3,53 +3,49 @@
 
 <div class="container">
     <h4><b>Barang Masuk Keluar</b></h4>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-3">
         <div class="col-sm">
             <h5>Filter Barang Masuk dan Keluar</h5>
-        <form>
-
-          <div class="form-group row">
-            <div class="col-md-2">
-            <span>Tanggal Awal</span>
-            @if(isset($awal))
-              <input class="form-control" type="text" id="awal" name="awal" value="{{$awal}}" placeholder="yyyy-mm-dd" required>
-            @else
-            <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
-            
-            @endif  
+            <form>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <span>Tanggal Awal</span>
+                        @if(isset($awal))
+                        <input class="form-control" type="text" id="awal" name="awal" value="{{$awal}}" placeholder="yyyy-mm-dd" required>
+                        @else
+                        <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
+                        @endif  
+                    </div>
+                    <div class="col-md-2">
+                        <span>Tanggal Akhir</span>
+                        @if(isset($akhir))
+                        <input class="form-control" type="text" id="akhir" name="akhir" value="{{$akhir}}"  placeholder="yyyy-mm-dd" required>
+                        @else
+                        <input class="form-control" type="text" id="akhir" name="akhir"  placeholder="yyyy-mm-dd" required>
+                        @endif  
+                    </div>
+                </div>
+            </form>
+                <script>
+                    $(document).ready(function () {
+                        $('#awal').datepicker({
+                            format: "yyyy-mm-dd",
+                            autoclose:true
+                        });
+                        $('#akhir').datepicker({
+                            format: "yyyy-mm-dd",
+                            autoclose:true
+                        });
+                    });
+                </script>
+            <div class="col-xs-12">
+                <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+                <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Laporan Barang"></a>
             </div>
-            <div class="col-md-2">
-            <span>Tanggal Akhir</span>
-            @if(isset($akhir))
-              <input class="form-control" type="text" id="akhir" name="akhir" value="{{$akhir}}"  placeholder="yyyy-mm-dd" required>
-              @else
-            <input class="form-control" type="text" id="akhir" name="akhir"  placeholder="yyyy-mm-dd" required>
-            @endif  
-            </div>
-          </div>
-        </form>
-        <script>
-              $(document).ready(function () {
-                $('#awal').datepicker({
-                    format: "yyyy-mm-dd",
-                    autoclose:true
-                });
-                $('#akhir').datepicker({
-                    format: "yyyy-mm-dd",
-                    autoclose:true
-                });
-            });
-        </script>
-        <div class="col-xs-12">
-        <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
-       
-        </div>
         </div>
         <div class="row float-right">
-     <div class="col-xs-12">
-      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Barang"></a>
-            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
-        --></div>
+
         <script>
           function onclicked(){
           
@@ -58,7 +54,7 @@
             window.location.replace("/dashboard/kepala/laporanbarang/cetaklaporan/" + awal + "/" + akhir);
           }
         </script>
-  </div>
+    </div>
         <script>
              function ontambahclicked()  {
               var awal = $("#awal").val();
@@ -72,7 +68,7 @@
     <h5>Tabel Barang Masuk</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
-        <table class="table table-striped">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">ID Obat</th>
@@ -112,7 +108,7 @@
     <h5>Tabel Barang Keluar</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
             <thead>
                 <tr>
                 <th scope="col">ID Obat</th>
