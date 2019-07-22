@@ -1,11 +1,12 @@
 @extends('layouts.home')
 
 @section('content')
+<body style="background-image: url('img/background-fit.png');">
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-end">
+        <div class="col-md-5">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header text-white bg-info mb-3"><b>Sistem Informasi Apotik Terpadu | Login</b></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -70,4 +71,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection
