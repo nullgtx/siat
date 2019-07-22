@@ -1,8 +1,8 @@
 @extends('layouts.navkepala')
 @section('content')
 <div class="container">
-    <h3>Absensi Karyawan</h3>
-    <h4><b>{{$cabang->nama_cabang}}</b></h4>
+    <h3><b>Absensi Karyawan</b></h3>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
     <div class="row pt-4">
         <div class="col">
         <!-- Isi Kolom Kesatu -->

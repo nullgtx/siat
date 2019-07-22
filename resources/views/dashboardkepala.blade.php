@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <h4><b>Selamat Datang, {{ Auth::user()->name }}</b></h4>
-    <button type="button" class="btn btn-outline-success"><b>Apotek {{$cabang->nama_cabang}}</b></button>
+    <button type="button" class="btn btn-outline-success"><b>Apotek Karya Sehat {{$cabang->nama_cabang}}</b></button>
 
     <div class="row pt-4">
         <div class="col-8">
