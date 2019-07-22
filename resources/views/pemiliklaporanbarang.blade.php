@@ -70,7 +70,6 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                <th scope="col">ID Obat</th>
                 <th scope="col">Kode Obat</th>
                 <th scope="col">Nama Obat</th>
                 <th scope="col">Jenis Obat</th>
@@ -84,7 +83,6 @@
             <tbody>
             @foreach($barangmasuk as $brgmsk)
             <tr>    
-                <td>{{$brgmsk->id}}</td>
                 <td>{{$brgmsk->kodebarang}}</td>
                 <td>{{$brgmsk->keteranganbarang}}</td>
                 <td>{{$brgmsk->jenisbarang}}</td>

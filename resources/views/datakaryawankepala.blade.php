@@ -23,8 +23,7 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                <th scope="col">ID</th>
-                <th scope="col">ID karyawan</th>
+                <th scope="col">ID Karyawan</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Alamat</th>
@@ -36,7 +35,6 @@
             <tbody>
             @foreach($datapegawai as $pegawaiss)
                 <tr>
-                <td>{{$pegawaiss->id}}</td>
                 <td>{{$pegawaiss->idkaryawan}}</td>
                 <td>{{$pegawaiss->namakaryawan}}</td>
                 <td>{{$pegawaiss->jeniskelamin}}</td>

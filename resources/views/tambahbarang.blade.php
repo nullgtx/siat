@@ -21,7 +21,7 @@
                 <option value="Serbuk">Serbuk</option>
                 <option value="Tablet">Tablet</option>
                 <option value="Tablet Kunyah">Tablet Kunyah</option>
-                <option value="Pil">Pil</option>
+                <option value="Sirup">Sirup</option>
                 <option value="Kapsul">Kapsul</option>
                 <option value="Kaplet">Kaplet</option>
                 <option value="Salep">Salep</option>

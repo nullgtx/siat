@@ -22,7 +22,6 @@
             <thead>
                 <tr>
                 <tr>
-                <th scope="col">ID Obat</th>
                 <th scope="col">Kode Obat</th>
                 <th scope="col">Nama Obat</th>
                 <th scope="col">Jenis Obat</th>
@@ -37,8 +36,6 @@
 
             @foreach($dataobat as $obat)
             <tr>
-                
-                <td>{{$obat->id}}</td>
                 <td>{{$obat->kodebarang}}</td>
                 <td>{{$obat->keteranganbarang}}</td>
                 <td>{{$obat->jenisbarang}}</td>

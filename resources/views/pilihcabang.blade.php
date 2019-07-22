@@ -9,7 +9,7 @@
                 <div class="col-sm-6 pb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{$c->nama_cabang}}</h5>
+                            <h5 class="card-title"><b>Apotek Karya Sehat {{$c->nama_cabang}}</b></h5>
                             <p class="card-text">{{$c->alamat_cabang}}</p>
                             <a href="/dashboard/pemilik/cabang/{{$c->id_cabang}}/stokobat" class="btn btn-success">Masuk</a>
                         </div>

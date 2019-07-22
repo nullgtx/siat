@@ -16,28 +16,28 @@
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Nama Karyawan</label>
             <div class="col-9">
-              <input class="form-control" type="text" placeholder="Nama Karyawan" id="namakaryawan" value="{{$datapegawai->namakaryawan}}" required>
+              <input class="form-control" type="text" placeholder="Nama Karyawan" id="namakaryawan" value="{{$datapegawai->namakaryawan}}" required disabled>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">ID Karyawan</label>
             <div class="col-9">
-              <input class="form-control" type="text" placeholder="ID Karyawan" id="idkaryawan" value="{{$datapegawai->idkaryawan}}" required>
+              <input class="form-control" type="text" placeholder="ID Karyawan" id="idkaryawan" value="{{$datapegawai->idkaryawan}}" required disabled> 
             </div>
           </div>
 
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Jabatan</label>
             <div class="col-9">
-              <input class="form-control" type="text" placeholder="Jabatan Karyawan" id="jabatan" value="{{$datapegawai->role}}" required>  
+              <input class="form-control" type="text" placeholder="Jabatan Karyawan" id="jabatan" value="{{$datapegawai->role}}" required disabled>  
             </div>
           </div>
 
           <div class="form-group row">
             <label for="example-text-input" class="col-3 col-form-label">Jumlah Alfa</label>
             <div class="col-9">
-              <input class="form-control" type="number" placeholder="Jumlah ketidakhadiran (alfa)" id="jumlahalfa" value="{{$jumlahalfa}}" required>
+              <input class="form-control" type="number" placeholder="Jumlah ketidakhadiran (alfa)" id="jumlahalfa" value="{{$jumlahalfa}}" required disabled>
             </div>
           </div>
 
@@ -49,7 +49,7 @@
                   <span class="input-group-text">Rp.</span>
                 </div>
                   
-                    <input type="number" class="form-control" id="gajipokok" placeholder="Masukkan Gaji Pokok" value="{{$gajipokok}}" required>
+                    <input type="number" class="form-control" id="gajipokok" placeholder="Masukkan Gaji Pokok" value="{{$gajipokok}}" required disabled>
                 <div class="input-group-append">
                   <span class="input-group-text">,00</span>
                 </div>
@@ -65,7 +65,7 @@
                   <span class="input-group-text">Rp.</span>
                 </div>
                   
-                  <input type="number" class="form-control" id="potongan" placeholder="Masukkan Potongan Gaji" value="{{$potongan}}" required>
+                  <input type="number" class="form-control" id="potongan" placeholder="Masukkan Potongan Gaji" value="{{$potongan}}" required disabled>
                 <div class="input-group-append">
                   <span class="input-group-text">,00</span>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Rp.</span>
                 </div>
-                  <input type="number" class="form-control" id="tunjangan" placeholder="Masukkan Gaji Tunjangan" value="{{$tunjangan}}" required>
+                  <input type="number" class="form-control" id="tunjangan" placeholder="Masukkan Gaji Tunjangan" value="{{$tunjangan}}" required disabled>
                 <div class="input-group-append">
                   <span class="input-group-text">,00</span>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Rp.</span>
                 </div>
-                  <input type="number" class="form-control" id="gajiakhir" placeholder="Masukkan Total Gaji" value="{{$gajiakhir}}" required>
+                  <input type="number" class="form-control" id="gajiakhir" placeholder="Masukkan Total Gaji" value="{{$gajiakhir}}" required disabled>
                 <div class="input-group-append">
                   <span class="input-group-text">,00</span>
                 </div>
