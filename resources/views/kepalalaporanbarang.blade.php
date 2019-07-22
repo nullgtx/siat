@@ -33,7 +33,7 @@
             });
         </script>
         <div class="col-xs-12">
-        <button type="submit" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+            <button type="submit" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
         </div>
         </div>
         <script>
@@ -127,7 +127,7 @@
     </div>
  <div class="row float-right">
      <div class="col-xs-12">
-      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Gaji"></a>
+      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Buat Laporan"></a>
             <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
         --></div>
         <script>

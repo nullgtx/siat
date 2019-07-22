@@ -48,10 +48,5 @@ class cabangcontroller extends Controller
         $transaksi = Transaksi::where('id_cabang', $cabang->id_cabang)->get();
         return view('penjualanpemilik', ['cabang' => $cabang, 'transaksi' => $transaksi]);
     }   
-    public function tampilbarangmasukkeluar($id_cabang) {
-        $cabang = DB::table('cabang')->where('id_cabang',$id_cabang)->first();
-        $barangmasuk = BarangMasuk::where('id_cabang', $cabang->id_cabang)->get();
-        $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->get();
-        return view('pemiliklaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
-    }
+    
 }

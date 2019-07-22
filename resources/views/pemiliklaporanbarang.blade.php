@@ -6,40 +6,47 @@
     <div class="row pt-3">
         <div class="col-sm">
             <h5>Filter Barang Masuk dan Keluar</h5>
-		<form>
-        <div class="form-group row">
-            <div class="col-md-2">
-              <select id="jeniskelamin" class="form-control" required>
-                <option value="" selected disable>Pilih</option>
-                <option value="1">Harian</option>
-                <option value="2">Bulanan</option>
-                <option value="3">Tahunan</option>
-              </select>
-            </div>
-          </div>
+        <form>
+
           <div class="form-group row">
             <div class="col-md-2">
-              <input class="form-control" type="date" id="tanggallahir" required>
+            <span>Tanggal Awal</span>
+              <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
+              
             </div>
             <div class="col-md-2">
-              <input class="form-control" type="month" id="tanggallahir" required>
+            <span>Tanggal Akhir</span>
+              <input class="form-control" type="text" id="akhir" name="akhir"   placeholder="yyyy-mm-dd" required>
             </div>
           </div>
         </form>
-
+        <script>
+              $(document).ready(function () {
+                $('#awal').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+                $('#akhir').datepicker({
+                    format: "yyyy-mm-dd",
+                    autoclose:true
+                });
+            });
+        </script>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
         </div>
+        </div>
+        <script>
+             function ontambahclicked()  {
+              var awal = $("#awal").val();
+             var akhir = $("#akhir").val();
+             window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/barangmasukkeluar/" + awal + "/" + akhir);
+             return awal;
+     };
+        </script>
+    </div>
+
         
-    </div>
-    <div class="form-group row">
-        <div class="col-2">
-            <button type="submit" class="btn btn-success btn-block">Lihat</button>
-        </div>
-        <div class="col-2">
-            <button type="submit" class="btn btn-success btn-block">Cetak</button>
-        </div>
-    </div>
-
-    	
     <h5>Tabel Barang Masuk</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
@@ -79,7 +86,7 @@
         </table>
     </div>
 
-    	
+        
     <h5>Tabel Barang Keluar</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
@@ -118,5 +125,19 @@
             </tbody>
         </table>
     </div>
+ <div class="row float-right">
+     <div class="col-xs-12">
+      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Buat Laporan"></a>
+            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
+        --></div>
+        <script>
+          function onclicked(){
+          
+            var awal = $("#awal").val();
+             var akhir = $("#akhir").val();
+            window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/barangmasukkeluar/cetaklaporan/" + awal + "/" + akhir);
+          }
+        </script>
+  </div>
 </div>
 @endsection

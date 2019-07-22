@@ -101,6 +101,7 @@ Route::get('/dashboard/kepala/laporanbarang', 'BarangMasukController@index')->na
 Route::get('/dashboard/kepala/laporanbarang/{awal}/{akhir}','BarangMasukController@tampil')->name('tampillaporankepala');
 Route::get('/dashboard/kepala/laporanbarang/cetaklaporan/{awal}/{akhir}', 'BarangMasukController@exportPDF')->name('cetaklaporanbr');
 
+
 /* -----DATA KARYAWAN----- */
 
 Route::get('/dashboard/kepala/datakaryawankepala/pencarian','PegawaisController@search');
@@ -153,7 +154,10 @@ Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan','cabangcontrolle
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/lihatgaji/{idkaryawan}', 'GajiKaryawanController@lihatGajipemilik')->name('lihatgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/gajikaryawan/cetakgaji/{idkaryawan}', 'GajiKaryawanController@exportPDFpemilik')->name('slipgajipemilik');
 Route::get('/dashboard/pemilik/cabang/{id_cabang}/penjualan','cabangcontroller@tampilpenjualancabang')->name('LaporanPenjualanPemilik');
-Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar','cabangcontroller@tampilbarangmasukkeluar')->name('LaporanBarangPemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar','BarangMasukController@tampilbarangmasukkeluar')->name('LaporanBarangPemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar/{awal}/{akhir}','BarangMasukController@tampilpemilik')->name('tampillaporanpemilik');
+Route::get('/dashboard/pemilik/cabang/{id_cabang}/barangmasukkeluar/cetaklaporan/{awal}/{akhir}', 'BarangMasukController@exportPDFpemilik')->name('cetaklaporanbr');
+
 /* -----STOK BARANG----- */
 
 
