@@ -24,7 +24,7 @@ class BarangMasukController extends Controller
         
         $barangmasuk = BarangMasuk::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
         $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
-            return view('kepalalaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
+        return view('kepalalaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar, 'awal'=> $awal,'akhir'=>$akhir]);
     }
     public function exportPDF($awal,$akhir, Request $request)
     {
@@ -50,7 +50,7 @@ class BarangMasukController extends Controller
         
         $barangmasuk = BarangMasuk::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
         $barangkeluar = BarangKeluar::where('id_cabang', $cabang->id_cabang)->whereRaw("tanggalmasuk BETWEEN '" . $awal . "' and '" . $akhir . "'")->get();
-            return view('kepalalaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);
+            return view('pemiliklaporanbarang', ['cabang' => $cabang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar,'awal'=> $awal,'akhir'=>$akhir]);
     }
     public function exportPDFpemilik($id_cabang,$awal,$akhir, Request $request)
     {

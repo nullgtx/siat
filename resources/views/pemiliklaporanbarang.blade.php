@@ -11,12 +11,20 @@
           <div class="form-group row">
             <div class="col-md-2">
             <span>Tanggal Awal</span>
-              <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
-              
+            @if(isset($awal))
+              <input class="form-control" type="text" id="awal" name="awal" value="{{$awal}}" placeholder="yyyy-mm-dd" required>
+            @else
+            <input class="form-control" type="text" id="awal" name="awal"  placeholder="yyyy-mm-dd" required>
+            
+            @endif  
             </div>
             <div class="col-md-2">
             <span>Tanggal Akhir</span>
-              <input class="form-control" type="text" id="akhir" name="akhir"   placeholder="yyyy-mm-dd" required>
+            @if(isset($akhir))
+              <input class="form-control" type="text" id="akhir" name="akhir" value="{{$akhir}}"  placeholder="yyyy-mm-dd" required>
+              @else
+            <input class="form-control" type="text" id="akhir" name="akhir"  placeholder="yyyy-mm-dd" required>
+            @endif  
             </div>
           </div>
         </form>
@@ -33,20 +41,34 @@
             });
         </script>
         <div class="col-xs-12">
-            <button type="submit" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+        <button type="button" id="lihatbutton" class="btn btn-outline-success" onclick="ontambahclicked();">Lihat</button>
+       
         </div>
         </div>
+        <div class="row float-right">
+     <div class="col-xs-12">
+      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Cetak Barang"></a>
+            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
+        --></div>
+        <script>
+          function onclicked(){
+          
+            var awal = $("#awal").val();
+             var akhir = $("#akhir").val();
+             window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/barangmasukkeluar/cetaklaporan/" + awal + "/" + akhir);
+          }
+        </script>
+  </div>
         <script>
              function ontambahclicked()  {
               var awal = $("#awal").val();
              var akhir = $("#akhir").val();
              window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/barangmasukkeluar/" + awal + "/" + akhir);
-             return awal;
+           
      };
         </script>
     </div>
-
-        
+    <hr>        
     <h5>Tabel Barang Masuk</h5>
     <!-- ISI TABEL MULAI DARI SINI -->
     <div class="row justify-content-center">
@@ -125,19 +147,6 @@
             </tbody>
         </table>
     </div>
- <div class="row float-right">
-     <div class="col-xs-12">
-      <input type="submit" onclick="onclicked();" class="btn btn-success" value="Buat Laporan"></a>
-            <!--<input type="submit" onclick="onclicked();" class="btn btn-outline-success" value="Buat Laporan"></a>
-        --></div>
-        <script>
-          function onclicked(){
-          
-            var awal = $("#awal").val();
-             var akhir = $("#akhir").val();
-            window.location.replace("/dashboard/pemilik/cabang/{{$cabang->id_cabang}}/barangmasukkeluar/cetaklaporan/" + awal + "/" + akhir);
-          }
-        </script>
-  </div>
+
 </div>
 @endsection
