@@ -77,8 +77,8 @@ class Pegawaiscontroller extends Controller
         ->wherein('id_cabang', [$cabang->id_cabang])
         ->paginate(10);
         if(count($datapegawai)>0)
-            return view ('datakaryawankepala',['datapegawai'=>$datapegawai]);
-            else return view('datakaryawankepala',['datapegawai'=>$datapegawai])->with('errMessage','Masukkan kata kunci atau pegawai tidak ditemukan');
+            return view ('datakaryawankepala',['datapegawai'=>$datapegawai,'cabang' => $cabang]);
+            else return view('datakaryawankepala',['datapegawai'=>$datapegawai,'cabang' => $cabang])->with('errMessage','Masukkan kata kunci atau pegawai tidak ditemukan');
     }
     public function searchkaryawan(Request $request, $id_cabang)
     { 
