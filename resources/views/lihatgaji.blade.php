@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 <div class="row justify-content-center">
-  <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover">
     <thead>
                 <tr>
                 <th scope="col">ID karyawan</th>
@@ -34,7 +34,11 @@
                 </tr>
                 @endforeach
             </tbody>
-  </table>
+    </table>
+    <div>
+        <a href="{{route('gajikaryawankepala') }}">
+        <input type="submit" class="btn btn-primary" value="Kembali"></a>
+    </div>
   </div>
   </div>
   @endsection
